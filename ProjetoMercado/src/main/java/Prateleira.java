@@ -1,5 +1,6 @@
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
 public class Prateleira {
     private ArrayList<Produto> produtos = new ArrayList<>();
@@ -7,7 +8,7 @@ public class Prateleira {
     public Prateleira() {
     }
     
-    public void organizaPrateleira(){
+    public void organizaPrateleira(){//ornaginazacao em ordem alfabetica
         
     }
     
@@ -15,8 +16,9 @@ public class Prateleira {
         
     }
     
-    public void addProdPrateleira(Produto prod){
-        
+    public void addProdPrateleira(String nome, double preco, Calendar validade, int idProduto){
+        Produto x = new Produto(nome,preco,validade,idProduto);
+        produtos.add(x);
     }
 
     public void setProdutos(ArrayList<Produto> produtos) {
