@@ -1,8 +1,10 @@
 package Main;
 
 
+import Main.comparador.ComparadorNomeCrescente;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
 
 public class Prateleira {
     private ArrayList<Produto> produtos = new ArrayList<>();
@@ -12,7 +14,7 @@ public class Prateleira {
       
     public void organizaPrateleira(){//ornaginazacao em ordem alfabetica
         try{
-            produtos.sort();
+            Collections.sort(produtos,new ComparadorNomeCrescente());
         }
         catch(Exception ex){
             System.out.println(ex.getMessage()+"patreleira esta vazia");

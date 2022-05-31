@@ -56,13 +56,6 @@ public class Produto {
     public int getIdProduto() {
         return idProduto;
     }
-      public int compareTo(Produto outroProduto) { 
-    if (this.idProduto > outroProduto.getIdProduto()) { 
-        return -1; 
-      } if (this.idProduto < outroProduto.getIdProduto()) { 
-        return 1; 
-      } 
-        return 0; 
- }
+
     
 }
