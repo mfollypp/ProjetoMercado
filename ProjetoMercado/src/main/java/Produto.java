@@ -17,7 +17,10 @@ public class Produto {
     
     
     public boolean checaValidade(){
-        return true;
+        Calendar dataDaVerificacao = Calendar.getInstance();
+        //retorna false se nao entrou no  logo ta fora da validade
+        //retorna true pois validade e menor que a data entao e dentro da validade
+        return this.validade.before(dataDaVerificacao.getTime());
     }
 
     public void setNome(String nome) {
