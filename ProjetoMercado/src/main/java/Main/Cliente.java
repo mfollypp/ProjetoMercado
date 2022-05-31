@@ -1,3 +1,5 @@
+package Main;
+
 public class Cliente {
     private boolean fidelidade;
     private Carrinho carrinho;

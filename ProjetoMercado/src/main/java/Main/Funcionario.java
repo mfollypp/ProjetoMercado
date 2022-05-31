@@ -1,3 +1,5 @@
+package Main;
+
 public class Funcionario {
     private int cadastro;
     private String tipoFuncionario;

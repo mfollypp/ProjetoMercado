@@ -1,3 +1,5 @@
+package Main;
+
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -7,15 +9,16 @@ public class Prateleira {
 
     public Prateleira() {
     }
-    
+      
     public void organizaPrateleira(){//ornaginazacao em ordem alfabetica
         try{
-        
+            produtos.sort();
         }
         catch(Exception ex){
-            System.out.println(ex.getMessage());
+            System.out.println(ex.getMessage()+"patreleira esta vazia");
         }
     }
+    
     
     public void retiraDaPrateleira(){
         

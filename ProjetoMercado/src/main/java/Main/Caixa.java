@@ -1,3 +1,5 @@
+package Main;
+
 public class Caixa {
     private Cliente cliente;
     private Carrinho carrinho;
