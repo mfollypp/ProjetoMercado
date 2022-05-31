@@ -2,7 +2,7 @@
 import java.util.ArrayList;
 
 public class Prateleira {
-    private ArrayList<Produto> produtos = new ArrayList<Produto>();
+    private ArrayList<Produto> produtos = new ArrayList<>();
 
     public Prateleira() {
     }

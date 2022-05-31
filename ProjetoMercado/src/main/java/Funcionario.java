@@ -2,8 +2,12 @@ public class Funcionario {
     private int cadastro;
     private String tipoFuncionario;
 
-    public Funcionario() {
+    public Funcionario(int cadastro, String tipoFuncionario) {
+        this.cadastro = cadastro;
+        this.tipoFuncionario = tipoFuncionario;
     }
+
+   
 
     public void setCadastro(int cadastro) {
         this.cadastro = cadastro;

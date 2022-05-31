@@ -8,8 +8,11 @@ public class Mercado {
     private ArrayList<Corredor> corredores = new ArrayList<Corredor>();
     private Calendar data;
 
-    public Mercado() {
+    public Mercado(String endereco, Calendar data) {
+        this.endereco = endereco;
+        this.data = data;
     }
+
     
     public void passarDia(){
         

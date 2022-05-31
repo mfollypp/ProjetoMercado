@@ -2,10 +2,9 @@
 import java.util.ArrayList;
 
 public class Carrinho {
-    private ArrayList<Produto> itens = new ArrayList<Produto>();
+    private ArrayList<Produto> itens = new ArrayList<>();
 
-    public Carrinho() {
-    }
+    
     
     public void addProduto(Produto prod){
         
