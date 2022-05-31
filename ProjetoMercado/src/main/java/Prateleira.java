@@ -9,7 +9,12 @@ public class Prateleira {
     }
     
     public void organizaPrateleira(){//ornaginazacao em ordem alfabetica
+        try{
         
+        }
+        catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }
     }
     
     public void retiraDaPrateleira(){
