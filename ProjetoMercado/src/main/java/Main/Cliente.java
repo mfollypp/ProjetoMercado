@@ -1,9 +1,15 @@
+package Main;
+
 public class Cliente {
     private boolean fidelidade;
     private Carrinho carrinho;
 
-    public Cliente() {
+    public Cliente(boolean fidelidade) {
+        this.fidelidade = fidelidade;
+        
     }
+
+    
     
     public void criaFidelidade(){
         

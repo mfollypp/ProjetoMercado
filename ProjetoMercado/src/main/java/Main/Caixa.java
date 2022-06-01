@@ -1,10 +1,16 @@
+package Main;
+
 public class Caixa {
     private Cliente cliente;
     private Carrinho carrinho;
     private String tipoPagamento;
 
-    public Caixa() {
+    public Caixa(Cliente cliente, String tipoPagamento) {
+        this.cliente = cliente;
+        this.tipoPagamento = tipoPagamento;
     }
+
+    
     
     public double totalCompra(Carrinho car){
         return 0.0;

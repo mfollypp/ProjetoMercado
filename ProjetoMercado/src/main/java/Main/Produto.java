@@ -1,3 +1,5 @@
+package Main;
+
 
 import java.util.Calendar;
 
@@ -5,13 +7,22 @@ public class Produto {
     private String nome;
     private double preco;
     private Calendar validade;
-    private String idProduto;
+    private int idProduto;
 
-    public Produto() {
+    public Produto(String nome, double preco, Calendar validade, int idProduto) {
+        this.nome = nome;
+        this.preco = preco;
+        this.validade = validade;
+        this.idProduto = idProduto;
     }
+      
+    
     
     public boolean checaValidade(){
-        return true;
+        Calendar dataDaVerificacao = Calendar.getInstance();
+        //retorna false se nao entrou no  logo ta fora da validade
+        //retorna true pois validade e menor que a data entao e dentro da validade
+        return this.validade.before(dataDaVerificacao.getTime());
     }
 
     public void setNome(String nome) {
@@ -26,7 +37,7 @@ public class Produto {
         this.validade = validade;
     }
 
-    public void setIdProduto(String idProduto) {
+    public void setIdProduto(int idProduto) {
         this.idProduto = idProduto;
     }
 
@@ -42,9 +53,9 @@ public class Produto {
         return validade;
     }
 
-    public String getIdProduto() {
+    public int getIdProduto() {
         return idProduto;
     }
-    
+
     
 }

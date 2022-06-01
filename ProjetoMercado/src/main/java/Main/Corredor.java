@@ -1,12 +1,17 @@
+package Main;
+
 
 import java.util.ArrayList;
 
 public class Corredor {
     private String tipoCorredor;
-    private ArrayList<Prateleira> prateleiras = new ArrayList<Prateleira>();
+    private ArrayList<Prateleira> prateleiras = new ArrayList<>();
 
-    public Corredor() {
+    public Corredor(String tipoCorredor) {
+        this.tipoCorredor = tipoCorredor;
     }
+
+    
     
     public void organizaPrateleiras(){
         
