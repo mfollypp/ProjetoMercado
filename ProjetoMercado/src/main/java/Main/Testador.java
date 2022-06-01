@@ -13,6 +13,8 @@ import java.util.Calendar;
  */
 public class Testador {
     public static void main(String[] args) {
+        /**
+         * testando como ta funcionamento de ordenamento de prateleira* */
         Prateleira teste =new  Prateleira();
         Calendar c = Calendar.getInstance();
         c.getTime();
@@ -23,6 +25,7 @@ public class Testador {
         System.out.println(teste.getProdutos().get(0).getNome());
         System.out.println(teste.getProdutos().get(1).getNome());
         System.out.println(teste.getProdutos().get(2).getNome());
+        
 
 
     }
