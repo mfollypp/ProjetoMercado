@@ -17,12 +17,27 @@ public class Prateleira {
             Collections.sort(produtos,new ComparadorNomeCrescente());
         }
         catch(Exception ex){
-            System.out.println(ex.getMessage()+"patreleira esta vazia");
+            System.out.println(ex.getMessage());
         }
     }
     
     
-    public void retiraDaPrateleira(){
+    public void retiraDaPrateleira(String nome){
+        try{
+            produtos.remove(pesquisaPosicaoDaPrateleira(nome));
+            
+        }
+        catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }
+    }
+    public int pesquisaPosicaoDaPrateleira(String nome){
+        for(int i=0;i<this.produtos.size();i++){
+            if(this.produtos.get(i).getNome().equals(nome)){
+                return i;
+           }
+        }
+        return -1;
         
     }
     

@@ -18,6 +18,7 @@ public class Testador {
         Prateleira teste =new  Prateleira();
         Calendar c = Calendar.getInstance();
         c.getTime();
+        teste.organizaPrateleira();
         teste.addProdPrateleira("feijao", 8, c, 1);
         teste.addProdPrateleira("arroz", 10, c, 2);
         teste.addProdPrateleira("lasanha", 30, c, 3);
@@ -25,7 +26,11 @@ public class Testador {
         System.out.println(teste.getProdutos().get(0).getNome());
         System.out.println(teste.getProdutos().get(1).getNome());
         System.out.println(teste.getProdutos().get(2).getNome());
-        
+        teste.retiraDaPrateleira("lasanh");
+        //
+        System.out.println(teste.getProdutos().get(0).getNome());
+        System.out.println(teste.getProdutos().get(1).getNome());
+        //System.out.println(teste.getProdutos().get(2).getNome());
 
 
     }
