@@ -10,14 +10,13 @@ public class Mercado {
     private ArrayList<Corredor> corredores = new ArrayList<Corredor>();
     private Calendar data;
 
-    public Mercado(String endereco, Calendar data) {
+    public Mercado(String endereco) {
         this.endereco = endereco;
-        this.data = data;
+        this.data = Calendar.getInstance();
     }
-
     
     public void passarDia(){
-        
+        this.data.add(Calendar.DATE, 1); //passa 1 dia / 24 horas
     }
 
     public void setEndereco(String endereco) {
@@ -51,6 +50,5 @@ public class Mercado {
     public Calendar getData() {
         return data;
     }
-    
     
 }

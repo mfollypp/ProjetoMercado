@@ -19,11 +19,10 @@ public class Pessoa {
     public void setIdade(int idade) {
         this.idade = idade;
     }
-    
-    //Teste teste
 
     public Pessoa(String nome, int idade) {
         this.nome = nome;
         this.idade = idade;
     }
+    
 }
