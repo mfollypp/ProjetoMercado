@@ -1,7 +1,8 @@
 package Main;
 
-
+import Main.comparador.ComparadorNomeCrescente;
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Corredor {
     private String tipoCorredor;
@@ -10,11 +11,11 @@ public class Corredor {
     public Corredor(String tipoCorredor) {
         this.tipoCorredor = tipoCorredor;
     }
-
-    
     
     public void organizaPrateleiras(){
-        
+        for(Prateleira prat : prateleiras){
+            prat.organizaPrateleira();
+        }
     }
 
     public void setTipoCorredor(String tipoCorredor) {
@@ -32,6 +33,5 @@ public class Corredor {
     public ArrayList<Prateleira> getPrateleiras() {
         return prateleiras;
     }
-    
     
 }

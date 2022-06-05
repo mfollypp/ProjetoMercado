@@ -1,6 +1,5 @@
 package Main;
 
-
 import Main.comparador.ComparadorNomeCrescente;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -21,7 +20,6 @@ public class Prateleira {
         }
     }
     
-    
     public void retiraDaPrateleira(String nome){
         try{
             produtos.remove(pesquisaPosicaoDaPrateleira(nome));
@@ -31,6 +29,7 @@ public class Prateleira {
             System.out.println(ex.getMessage());
         }
     }
+    
     public int pesquisaPosicaoDaPrateleira(String nome){
         for(int i=0;i<this.produtos.size();i++){
             if(this.produtos.get(i).getNome().equals(nome)){
@@ -38,7 +37,6 @@ public class Prateleira {
            }
         }
         return -1;
-        
     }
     
     public void addProdPrateleira(String nome, double preco, Calendar validade, int idProduto){

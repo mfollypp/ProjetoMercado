@@ -1,6 +1,5 @@
 package Main;
 
-
 import java.util.Calendar;
 
 public class Produto {
@@ -16,13 +15,11 @@ public class Produto {
         this.idProduto = idProduto;
     }
       
-    
-    
     public boolean checaValidade(){
         Calendar dataDaVerificacao = Calendar.getInstance();
         //retorna false se nao entrou no  logo ta fora da validade
         //retorna true pois validade e menor que a data entao e dentro da validade
-        return this.validade.before(dataDaVerificacao.getTime());
+        return this.validade.before(dataDaVerificacao.getTime()); //isso aqui foi genial 
     }
 
     public void setNome(String nome) {
@@ -56,6 +53,5 @@ public class Produto {
     public int getIdProduto() {
         return idProduto;
     }
-
     
 }

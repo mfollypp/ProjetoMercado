@@ -9,8 +9,6 @@ public class Funcionario {
         this.tipoFuncionario = tipoFuncionario;
     }
 
-   
-
     public void setCadastro(int cadastro) {
         this.cadastro = cadastro;
     }
@@ -26,6 +24,5 @@ public class Funcionario {
     public String getTipoFuncionario() {
         return tipoFuncionario;
     }
-    
     
 }
