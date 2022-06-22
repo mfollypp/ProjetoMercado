@@ -2,13 +2,12 @@ package Main;
 
 import java.io.Serializable;
 
-public class Funcionario implements Serializable {
-    private String nome;
+public class Funcionario extends Pessoa implements Serializable {
     private int cadastro;
     private String tipoFuncionario;
 
-    public Funcionario(String nome, int cadastro, String tipoFuncionario) {
-        this.nome = nome;
+    public Funcionario(String nome, int idade, int cadastro, String tipoFuncionario) {
+        super(nome, idade);
         this.cadastro = cadastro;
         this.tipoFuncionario = tipoFuncionario;
     }
@@ -31,7 +30,7 @@ public class Funcionario implements Serializable {
     
     @Override
     public String toString() {
-	return "Nome:" + this.nome + "\nCadastro: " + this.cadastro + "\nTipo Funcionario: " + this.tipoFuncionario;
+	return "Nome:" + this.getNome() + "\nCadastro: " + this.cadastro + "\nTipo Funcionario: " + this.tipoFuncionario;
     }
     
 }

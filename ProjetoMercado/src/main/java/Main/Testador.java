@@ -7,8 +7,8 @@ public class Testador {
     public static void main(String[] args) throws IOException, ClassNotFoundException {
         Mercado mercado = new Mercado("Rua Tal");
         
-        mercado.addFuncionario("Matheus", 1234, "Coordenador");
-        mercado.addFuncionario("Folly", 4321, "Gerente");
+        mercado.addFuncionario("Matheus", 24, 1234, "Coordenador");
+        mercado.addFuncionario("Folly", 24, 4321, "Gerente");
         
         mercado.getFuncionarios();
         

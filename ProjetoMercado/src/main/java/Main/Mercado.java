@@ -26,9 +26,9 @@ public class Mercado {
         this.data = Calendar.getInstance();
     }
     
-    public void addFuncionario(String nome, int cadastro, String tipoFuncionario) throws IOException{
+    public void addFuncionario(String nome, int idade, int cadastro, String tipoFuncionario) throws IOException{
         try{
-            Funcionario func = new Funcionario(nome, cadastro, tipoFuncionario);
+            Funcionario func = new Funcionario(nome, idade, cadastro, tipoFuncionario);
             fos = new FileOutputStream("funcionarios.txt", true);
             ous = new ObjectOutputStream(fos);
             ous.writeObject(func);
