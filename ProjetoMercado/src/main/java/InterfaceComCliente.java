@@ -146,7 +146,7 @@ public class InterfaceComCliente extends javax.swing.JFrame {
         else {
             sexo = "nao informado";
         }
-        JOptionPane.showMessageDialog(rootPane,"Seu nome é"+textoDoNome.getText()+"sexo" +sexo,"Aviso",JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(rootPane,"Seu nome é"+textoDoNome.getText()+"sexo "+sexo,"Aviso",JOptionPane.INFORMATION_MESSAGE);
         //System.out.println(textoDoNome.getText());
     }//GEN-LAST:event_jButton1ActionPerformed
 
