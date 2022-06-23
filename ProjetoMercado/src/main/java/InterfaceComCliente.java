@@ -34,9 +34,11 @@ public class InterfaceComCliente extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         textoDoNome = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
-        sexoMasculino = new javax.swing.JRadioButton();
-        sexoFeminino = new javax.swing.JRadioButton();
-        jLabel3 = new javax.swing.JLabel();
+        FidelidadeSim = new javax.swing.JRadioButton();
+        FidelidadeNao = new javax.swing.JRadioButton();
+        FidelidadeTexto = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -63,23 +65,32 @@ public class InterfaceComCliente extends javax.swing.JFrame {
             }
         });
 
-        grupo_Sexo.add(sexoMasculino);
-        sexoMasculino.setText("Masculino");
-        sexoMasculino.addActionListener(new java.awt.event.ActionListener() {
+        grupo_Sexo.add(FidelidadeSim);
+        FidelidadeSim.setText("Sim");
+        FidelidadeSim.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sexoMasculinoActionPerformed(evt);
+                FidelidadeSimActionPerformed(evt);
             }
         });
 
-        grupo_Sexo.add(sexoFeminino);
-        sexoFeminino.setText("Feminino");
-        sexoFeminino.addActionListener(new java.awt.event.ActionListener() {
+        grupo_Sexo.add(FidelidadeNao);
+        FidelidadeNao.setText("Nao");
+        FidelidadeNao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sexoFemininoActionPerformed(evt);
+                FidelidadeNaoActionPerformed(evt);
             }
         });
 
-        jLabel3.setText("Sexo :");
+        FidelidadeTexto.setText("Fidadelidade");
+
+        jLabel4.setText("Idade :");
+
+        jTextField1.setText("Digite sua idade aqui!");
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -90,24 +101,30 @@ public class InterfaceComCliente extends javax.swing.JFrame {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(textoDoNome))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextField1))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(textoDoNome)))
+                        .addGap(84, 84, 84))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addComponent(sexoMasculino)
-                        .addGap(32, 32, 32)
-                        .addComponent(sexoFeminino)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addGap(84, 84, 84))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(121, 121, 121)
-                .addComponent(jButton1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(FidelidadeTexto)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(42, 42, 42)
+                                .addComponent(jButton1))
+                            .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(FidelidadeSim)
+                                .addGap(18, 18, 18)
+                                .addComponent(FidelidadeNao)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -117,12 +134,16 @@ public class InterfaceComCliente extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(textoDoNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(sexoMasculino)
-                    .addComponent(sexoFeminino)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(48, 48, 48)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(19, 19, 19)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(FidelidadeTexto, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(FidelidadeSim)
+                    .addComponent(FidelidadeNao))
+                .addGap(6, 6, 6)
                 .addComponent(jButton1)
                 .addContainerGap())
         );
@@ -135,18 +156,18 @@ public class InterfaceComCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_textoDoNomeActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        String sexo ="";
+        String fidelidade ="";
         
-        if(sexoMasculino.isSelected()){
-            sexo="masculino";
+        if(FidelidadeSim.isSelected()){
+            fidelidade="sim";
         }
-        else if(sexoFeminino.isSelected()){
-            sexo="feminino";
+        else if(FidelidadeNao.isSelected()){
+            fidelidade="nao";
         }
         else {
-            sexo = "nao informado";
+            fidelidade = "nao informado";
         }
-        JOptionPane.showMessageDialog(rootPane,"Seu nome é"+textoDoNome.getText()+"sexo "+sexo,"Aviso",JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(rootPane,"Seu nome é"+textoDoNome.getText()+"sexo "+fidelidade,"Aviso",JOptionPane.INFORMATION_MESSAGE);
         //System.out.println(textoDoNome.getText());
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -154,13 +175,17 @@ public class InterfaceComCliente extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1KeyTyped
 
-    private void sexoMasculinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sexoMasculinoActionPerformed
+    private void FidelidadeSimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FidelidadeSimActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_sexoMasculinoActionPerformed
+    }//GEN-LAST:event_FidelidadeSimActionPerformed
 
-    private void sexoFemininoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sexoFemininoActionPerformed
+    private void FidelidadeNaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FidelidadeNaoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_sexoFemininoActionPerformed
+    }//GEN-LAST:event_FidelidadeNaoActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -198,13 +223,15 @@ public class InterfaceComCliente extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JRadioButton FidelidadeNao;
+    private javax.swing.JRadioButton FidelidadeSim;
+    private javax.swing.JLabel FidelidadeTexto;
     private javax.swing.ButtonGroup grupo_Sexo;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JRadioButton sexoFeminino;
-    private javax.swing.JRadioButton sexoMasculino;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField textoDoNome;
     // End of variables declaration//GEN-END:variables
 }
