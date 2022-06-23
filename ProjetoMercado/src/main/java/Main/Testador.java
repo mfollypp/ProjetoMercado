@@ -1,20 +1,19 @@
 package Main;
 
+import java.io.IOException;
 import java.util.Calendar;
 
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-
-/**
- *
- * @author pcezar
- */
 public class Testador {
-    public static void main(String[] args) {
-        /**
-         * testando como ta funcionamento de ordenamento de prateleira* */
+    public static void main(String[] args) throws IOException, ClassNotFoundException {
+        Mercado mercado = new Mercado("Rua Tal");
+        
+        mercado.addFuncionario("Matheus", 24, 1234, "Coordenador");
+        mercado.addFuncionario("Folly", 24, 4321, "Gerente");
+        
+        mercado.getFuncionarios();
+        
+//        testando como ta funcionamento de ordenamento de prateleira
+
         Prateleira teste =new  Prateleira();
         Calendar c = Calendar.getInstance();
         c.getTime();
