@@ -38,7 +38,7 @@ public class InterfaceComCliente extends javax.swing.JFrame {
         FidelidadeNao = new javax.swing.JRadioButton();
         FidelidadeTexto = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        textoDaIdade = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -85,10 +85,10 @@ public class InterfaceComCliente extends javax.swing.JFrame {
 
         jLabel4.setText("Idade :");
 
-        jTextField1.setText("Digite sua idade aqui!");
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        textoDaIdade.setText("Digite sua idade aqui!");
+        textoDaIdade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                textoDaIdadeActionPerformed(evt);
             }
         });
 
@@ -107,7 +107,7 @@ public class InterfaceComCliente extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel4)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField1))
+                                .addComponent(textoDaIdade))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addComponent(jLabel2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -137,7 +137,7 @@ public class InterfaceComCliente extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(textoDaIdade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(19, 19, 19)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(FidelidadeTexto, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -167,7 +167,7 @@ public class InterfaceComCliente extends javax.swing.JFrame {
         else {
             fidelidade = "nao informado";
         }
-        JOptionPane.showMessageDialog(rootPane,"Seu nome é"+textoDoNome.getText()+"sexo "+fidelidade,"Aviso",JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(rootPane,"Seu nome é"+textoDoNome.getText()+"e fiel "+fidelidade+"com idade :"+textoDaIdade.getText(),"Aviso",JOptionPane.INFORMATION_MESSAGE);
         //System.out.println(textoDoNome.getText());
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -183,9 +183,9 @@ public class InterfaceComCliente extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_FidelidadeNaoActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void textoDaIdadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textoDaIdadeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_textoDaIdadeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -231,7 +231,7 @@ public class InterfaceComCliente extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField textoDaIdade;
     private javax.swing.JTextField textoDoNome;
     // End of variables declaration//GEN-END:variables
 }
