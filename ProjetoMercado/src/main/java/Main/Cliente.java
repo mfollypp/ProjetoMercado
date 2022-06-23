@@ -1,14 +1,13 @@
 package Main;
 
-public class Cliente {
-    private String nome;
+public class Cliente extends Pessoa {
     private boolean fidelidade;
     private Carrinho carrinho;
     private double valorCompra;
     private int senhaCartao;
 
-    public Cliente(String nome, int senhaCartao, boolean fidelidade) {
-        this.nome = nome;
+    public Cliente(String nome, int idade, int senhaCartao, boolean fidelidade) {
+        super(nome, idade);
         this.senhaCartao = senhaCartao;
         this.fidelidade = fidelidade;
     }
@@ -35,20 +34,12 @@ public class Cliente {
         return carrinho;
     }   
 
-    public String getNome() {
-        return nome;
-    }
-
     public double getValorCompra() {
         return valorCompra;
     }
 
     public int getSenhaCartao() {
         return senhaCartao;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
     }
 
     public void setValorCompra(double valorCompra) {
