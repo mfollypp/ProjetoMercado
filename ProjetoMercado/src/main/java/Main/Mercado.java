@@ -26,7 +26,7 @@ public class Mercado {
         this.data = Calendar.getInstance();
     }
     
-    public void addFuncionario(String nome, int idade, int cadastro, String tipoFuncionario) throws IOException{
+    public void addFuncionario(String nome, int idade, int cadastro, String tipoFuncionario) throws IOException{ //refazer fazendo com arraylist e no fim add em arquivo
         try{
             Funcionario func = new Funcionario(nome, idade, cadastro, tipoFuncionario);
             fos = new FileOutputStream("funcionarios.txt", true);
