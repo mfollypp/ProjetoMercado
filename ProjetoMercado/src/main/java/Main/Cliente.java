@@ -51,4 +51,9 @@ public class Cliente extends Pessoa {
     public void setSenhaCartao(int senhaCartao) {
         this.senhaCartao = senhaCartao;
     }
+
+    @Override
+    public String toString() {
+        return "Cliente{" + "fidelidade=" + fidelidade + ", carrinho=" + carrinho + ", valorCompra=" + valorCompra + ", senhaCartao=" + senhaCartao + '}';
+    }   
 }

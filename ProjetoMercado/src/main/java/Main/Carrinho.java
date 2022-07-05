@@ -21,5 +21,9 @@ public class Carrinho {
     public ArrayList<Produto> getItens() { //retorna os itens do carrinho
         return itens;
     }
-    
+
+    @Override
+    public String toString() {
+        return "Carrinho{" + "itens=" + itens + '}';
+    }   
 }
