@@ -1,37 +1,38 @@
 package Main;
 
+import java.io.IOException;
 import java.util.Calendar;
 
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-
-/**
- *
- * @author pcezar
- */
 public class Testador {
-    public static void main(String[] args) {
-        /**
-         * testando como ta funcionamento de ordenamento de prateleira* */
-        Prateleira teste =new  Prateleira();
-        Calendar c = Calendar.getInstance();
-        c.getTime();
-        teste.organizaPrateleira();
-        teste.addProdPrateleira("feijao", 8, c, 1);
-        teste.addProdPrateleira("arroz", 10, c, 2);
-        teste.addProdPrateleira("lasanha", 30, c, 3);
-        teste.organizaPrateleira();
-        System.out.println(teste.getProdutos().get(0).getNome());
-        System.out.println(teste.getProdutos().get(1).getNome());
-        System.out.println(teste.getProdutos().get(2).getNome());
-        teste.retiraDaPrateleira("lasanh");
-        //
-        System.out.println(teste.getProdutos().get(0).getNome());
-        System.out.println(teste.getProdutos().get(1).getNome());
-        //System.out.println(teste.getProdutos().get(2).getNome());
-
-
+    public static void main(String[] args) throws IOException, ClassNotFoundException {
+        
+        /*--------------------------------------------------------------------*/
+        Mercado mercado = new Mercado("Rua Tal");
+        
+        mercado.leArqFuncionarios();
+        
+        mercado.addFuncionario("Matheus", 24, 1111, "Coordenador");
+        mercado.addFuncionario("Folly", 23, 2222, "Gerente");
+        mercado.addFuncionario("Pilotto", 25, 3333, "CEO");
+        
+        mercado.escreveArqFuncionarios();
+        
+        mercado.getFuncionarios();
+        /*####################################################################*/
+        
+        /*--------------------------------------------------------------------*/
+        Produto arroz = new Produto("Arroz", 10.9, Calendar.getInstance(), 1);
+        Produto feijao = new Produto("Feijao", 8.5, Calendar.getInstance(), 2);
+        Produto carne = new Produto("Carne", 42.90, Calendar.getInstance(), 3);
+        
+        Carrinho carrinho = new Carrinho();
+        carrinho.addProduto(arroz);
+        carrinho.addProduto(feijao);
+        carrinho.addProduto(carne);
+        
+        for(Produto prod : carrinho.getItens()){
+            System.out.println(prod);
+        }
+        /*####################################################################*/
     }
 }
