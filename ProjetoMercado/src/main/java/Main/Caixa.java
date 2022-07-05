@@ -75,4 +75,8 @@ public class Caixa {
         return tipoPagamento;
     }
     
+    @Override
+    public String toString() {
+        return "Caixa{" + "cliente=" + cliente + ", carrinho=" + carrinho + ", tipoPagamento=" + tipoPagamento + ", valorTotalCompra=" + valorTotalCompra + ", input=" + input + '}';
+    }  
 }

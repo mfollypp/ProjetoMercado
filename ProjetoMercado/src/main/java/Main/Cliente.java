@@ -58,5 +58,4 @@ public class Cliente {
     public void setSenhaCartao(int senhaCartao) {
         this.senhaCartao = senhaCartao;
     }
-    
 }
