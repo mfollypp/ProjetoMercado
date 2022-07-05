@@ -4,21 +4,21 @@ package Main;
 import java.util.ArrayList;
 
 public class Carrinho {
-    private ArrayList<Produto> itens = new ArrayList<>();
+    private ArrayList<Produto> itens = new ArrayList<>(); //array de produtos (carrinho)
     
-    public void addProduto(Produto prod){
+    public void addProduto(Produto prod){ //insere produto prod no carrinho
         this.itens.add(prod);
     }
     
-    public void removeProduto(Produto prod){
+    public void removeProduto(Produto prod){ //remove produto prod do carrinho
         this.itens.remove(prod);
     }
 
-    public void setItens(ArrayList<Produto> itens) {
+    public void setItens(ArrayList<Produto> itens) { //pode usar pra clonar um carrinho
         this.itens = itens;
     }
 
-    public ArrayList<Produto> getItens() {
+    public ArrayList<Produto> getItens() { //retorna os itens do carrinho
         return itens;
     }
     

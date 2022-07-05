@@ -6,11 +6,13 @@ public class Funcionario extends Pessoa implements Serializable {
     private int cadastro;
     private String tipoFuncionario;
 
-    public Funcionario(String nome, int idade, int cadastro, String tipoFuncionario) {
+    public Funcionario(String nome, int idade, int cadastro, String tipoFuncionario) { //construtor da classe Funcionario
         super(nome, idade);
         this.cadastro = cadastro;
         this.tipoFuncionario = tipoFuncionario;
     }
+    
+    //gets e sets dos atributos da classe
 
     public void setCadastro(int cadastro) {
         this.cadastro = cadastro;
@@ -29,8 +31,8 @@ public class Funcionario extends Pessoa implements Serializable {
     }
     
     @Override
-    public String toString() {
-	return "Nome:" + this.getNome() + "\nCadastro: " + this.cadastro + "\nTipo Funcionario: " + this.tipoFuncionario;
+    public String toString() { //para printa os funcionarios sem formatar na hora
+	return "Nome: " + this.getNome() + "\nCadastro: " + this.cadastro + "\nTipo Funcionario: " + this.tipoFuncionario + "\n";
     }
     
 }

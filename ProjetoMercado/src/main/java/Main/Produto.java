@@ -8,7 +8,7 @@ public class Produto {
     private Calendar validade;
     private int idProduto;
 
-    public Produto(String nome, double preco, Calendar validade, int idProduto) {
+    public Produto(String nome, double preco, Calendar validade, int idProduto) { //construtor da classe Produto
         this.nome = nome;
         this.preco = preco;
         this.validade = validade;
@@ -17,10 +17,12 @@ public class Produto {
       
     public boolean checaValidade(){
         Calendar dataDaVerificacao = Calendar.getInstance();
-        //retorna false se nao entrou no  logo ta fora da validade
+        //retorna false se nao entrou no logo ta fora da validade
         //retorna true pois validade e menor que a data entao e dentro da validade
-        return this.validade.before(dataDaVerificacao.getTime()); //isso aqui foi genial 
+        return this.validade.before(dataDaVerificacao.getTime());
     }
+    
+    //gets e sets dos atributos da classe
 
     public void setNome(String nome) {
         this.nome = nome;
@@ -52,6 +54,11 @@ public class Produto {
 
     public int getIdProduto() {
         return idProduto;
+    }
+    
+    @Override
+    public String toString() { //para printar os produtos sem precisar formatar na hora
+	return "Nome: " + this.getNome() + "\nPreco: " + this.preco + "\nValidade: " + this.validade + "\nID Produto: " + this.idProduto + "\n";
     }
     
 }

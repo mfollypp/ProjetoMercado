@@ -6,7 +6,7 @@ public class Cliente extends Pessoa {
     private double valorCompra;
     private int senhaCartao;
 
-    public Cliente(String nome, int idade, int senhaCartao, boolean fidelidade) {
+    public Cliente(String nome, int idade, int senhaCartao, boolean fidelidade) { //construtor da classe Cliente
         super(nome, idade);
         this.senhaCartao = senhaCartao;
         this.fidelidade = fidelidade;
@@ -14,9 +14,11 @@ public class Cliente extends Pessoa {
     
     public void criaFidelidade(){
         if(this.fidelidade = false){
-            this.fidelidade = true;
+            this.fidelidade = true; //se a fidelidade do Cliente for false entao cria
         }
     }
+    
+    //gets e sets dos atributos da classe
     
     public void setFidelidade(boolean fidelidade) {
         this.fidelidade = fidelidade;
