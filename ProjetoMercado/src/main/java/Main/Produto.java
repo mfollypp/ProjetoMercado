@@ -58,7 +58,7 @@ public class Produto {
     
     @Override
     public String toString() { //para printar os produtos sem precisar formatar na hora
-	return "Nome: " + this.getNome() + "\nPreco: " + this.preco + "\nValidade: " + this.validade + "\nID Produto: " + this.idProduto + "\n";
+	return "Nome: " + this.getNome() + "\nPreco: " + this.preco + "\nValidade: " + this.validade.getTime() + "\nID Produto: " + this.idProduto + "\n";
     }
     
 }

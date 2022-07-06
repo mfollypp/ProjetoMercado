@@ -21,9 +21,11 @@ public class Testador {
         /*####################################################################*/
         
         /*--------------------------------------------------------------------*/
-        Produto arroz = new Produto("Arroz", 10.9, Calendar.getInstance(), 1);
-        Produto feijao = new Produto("Feijao", 8.5, Calendar.getInstance(), 2);
-        Produto carne = new Produto("Carne", 42.90, Calendar.getInstance(), 3);
+        Calendar data = Calendar.getInstance();
+        data.set(2022, 7, 11);
+        Produto arroz = new Produto("Arroz", 10.9, data, 1);
+        Produto feijao = new Produto("Feijao", 8.5, data, 2);
+        Produto carne = new Produto("Carne", 42.90, data, 3);
         
         Carrinho carrinho = new Carrinho();
         carrinho.addProduto(arroz);
@@ -33,6 +35,18 @@ public class Testador {
         for(Produto prod : carrinho.getItens()){
             System.out.println(prod);
         }
+        /*####################################################################*/
+        
+        /*--------------------------------------------------------------------*/
+        //Simulacao cliente vai fazer compras no mercado:
+        Cliente matheus = new Cliente("Matheus", 24, 1324, false);
+        matheus.addProd(arroz);
+        matheus.addProd(feijao);
+        
+        Caixa caixa = new Caixa();
+        System.out.println("Valor total da compra: R$" + caixa.totalCompra(matheus, matheus.getCarrinho()));
+        caixa.fazPagamento(matheus, "dinheiro");
+        System.out.println("Valor da 'conta' da compra apos pagamento = R$" + matheus.getValorCompra());
         /*####################################################################*/
     }
 }
