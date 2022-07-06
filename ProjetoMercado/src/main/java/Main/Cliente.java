@@ -2,7 +2,7 @@ package Main;
 
 public class Cliente extends Pessoa {
     private boolean fidelidade;
-    private Carrinho carrinho;
+    private Carrinho carrinho = new Carrinho(); //instanciado porque se nao fica null e nao insere
     private double valorCompra;
     private int senhaCartao;
 
@@ -16,6 +16,10 @@ public class Cliente extends Pessoa {
         if(this.fidelidade = false){
             this.fidelidade = true; //se a fidelidade do Cliente for false entao cria
         }
+    }
+    
+    public void addProd(Produto prod){
+        this.carrinho.addProduto(prod); //para add produto ao carrinho sem precisar dar getCarrinho do cliente
     }
     
     //gets e sets dos atributos da classe
