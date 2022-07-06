@@ -1,45 +1,58 @@
-
-package Main;
-
-import java.util.ArrayList;
-import java.util.Calendar;
-
-public class Estoque extends Localização {
-    private Calendar validade;
-    
-    public Estoque(Calendar validade) { //construtor da classe Estoque
-    this.validade = validade;    
-    }
-    
-    private ArrayList<Produto> produtos = new ArrayList<>();
-   
-    public boolean checaDisponibilidade(){ //método incompleto
-        return true;
-    }
-    
-    public boolean checaValidade(){
-        Calendar dataDaVerificacao = Calendar.getInstance();
-        //retorna false se nao entrou no logo ta fora da validade
-        //retorna true pois validade e menor que a data entao e dentro da validade
-        return this.validade.before(dataDaVerificacao.getTime());
-    }
-    
-    public void setProdutos(ArrayList<Produto> produtos) {
-        this.produtos = produtos;
-    }
-    
-    public ArrayList<Produto> getProdutos() {
-        return produtos;
-    }
-
-    //gets e sets dos atributos da classe
-    
-    public void setValidade(Calendar validade) {
-        this.validade = validade;
-    }
-    
-    public Calendar getValidade() {
-        return validade;
-    }
-    
+/* 
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license 
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template 
+ */ 
+package Main; 
+ 
+import java.util.ArrayList; 
+ 
+/** 
+ * 
+ * @author pcezar 
+ */ 
+public class Estoque extends Localizacao { 
+ 
+    private ArrayList<Produto> produtos = new ArrayList<>(); 
+    private ArrayList<Integer> quantidadesDoProduto=new ArrayList<>();// qtd respectiva  de cada produto no estoque da mesma possição do arrayList de produtos 
+ 
+    public Estoque(String localizacao) { 
+        super(localizacao); 
+    } 
+    public void adicionaNoEstoque(Produto x,int quantidade){ 
+        produtos.add(x); 
+        quantidadesDoProduto.add(quantidade); 
+    } 
+    public boolean checaDisponibilidade(String x){ 
+        for(int i=0;i<produtos.size();i++){ 
+            if(produtos.get(i).getNome().equals(x)){ 
+                return true; 
+            } 
+        } 
+         
+        return false; 
+                 
+    } 
+    public int checaQuantidade(String x){ 
+        if (checaDisponibilidade(x)== true){ 
+        for(int i=0;i<produtos.size();i++){ 
+            if(produtos.get(i).getNome().equals(x)){ 
+                return quantidadesDoProduto.get(i); 
+                } 
+            } 
+        } 
+        return -1; 
+    } 
+    public void retiraEstoque(int quantidade,String x){ 
+        int qtd=checaQuantidade(x); 
+        if(qtd<=quantidade){System.out.println("quantidade acima da disponivel");} 
+        else{
+            for(int i=0;i<produtos.size();i++){ 
+                if(produtos.get(i).getNome().equals(x)){ 
+                    int numero=qtd-quantidade; 
+                    quantidadesDoProduto.set(i,numero); 
+                } 
+            } 
+                 
+        }
+    } 
 }
