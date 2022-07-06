@@ -1,37 +1,25 @@
-/* 
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license 
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template 
- */ 
 package Main; 
  
 import java.util.ArrayList; 
- 
-/** 
- * 
- * @author pcezar 
- */ 
-public class Estoque extends Localizacao { 
- 
+
+public class Estoque {
     private ArrayList<Produto> produtos = new ArrayList<>(); 
     private ArrayList<Integer> quantidadesDoProduto=new ArrayList<>();// qtd respectiva  de cada produto no estoque da mesma possição do arrayList de produtos 
- 
-    public Estoque(String localizacao) { 
-        super(localizacao); 
-    } 
+    
     public void adicionaNoEstoque(Produto x,int quantidade){ 
         produtos.add(x); 
         quantidadesDoProduto.add(quantidade); 
     } 
+    
     public boolean checaDisponibilidade(String x){ 
         for(int i=0;i<produtos.size();i++){ 
             if(produtos.get(i).getNome().equals(x)){ 
                 return true; 
             } 
         } 
-         
-        return false; 
-                 
+        return false;      
     } 
+    
     public int checaQuantidade(String x){ 
         if (checaDisponibilidade(x)== true){ 
         for(int i=0;i<produtos.size();i++){ 
@@ -41,18 +29,21 @@ public class Estoque extends Localizacao {
             } 
         } 
         return -1; 
-    } 
+    }
+    
     public void retiraEstoque(int quantidade,String x){ 
-        int qtd=checaQuantidade(x); 
-        if(qtd<=quantidade){System.out.println("quantidade acima da disponivel");} 
+        int qtd = checaQuantidade(x); 
+        if(qtd <= quantidade){
+            System.out.println("quantidade acima da disponivel");
+        } 
         else{
-            for(int i=0;i<produtos.size();i++){ 
+            for(int i = 0; i < produtos.size(); i++){ 
                 if(produtos.get(i).getNome().equals(x)){ 
-                    int numero=qtd-quantidade; 
+                    int numero = qtd - quantidade; 
                     quantidadesDoProduto.set(i,numero); 
                 } 
-            } 
-                 
+            }   
         }
-    } 
+    }
+    
 }

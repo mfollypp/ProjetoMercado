@@ -7,7 +7,7 @@ import java.util.Collections;
 
 public class Prateleira {
     private ArrayList<Produto> produtos = new ArrayList<>();
-      
+    
     public void organizaPrateleira(){//ornaginazacao em ordem alfabetica
         try{
             Collections.sort(produtos,new ComparadorNomeCrescente()); //da sort na prateleira pra organizar os produtos
