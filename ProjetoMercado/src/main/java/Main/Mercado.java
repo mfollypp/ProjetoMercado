@@ -13,7 +13,7 @@ import java.io.ObjectOutputStream;
 public class Mercado {
     private String endereco;
     private ArrayList<Funcionario> funcionarios = new ArrayList<Funcionario>();
-    private ArrayList<Corredor> corredores = new ArrayList<Corredor>();
+    private ArrayList<Prateleira> prateleiras = new ArrayList<Prateleira>();
     private Calendar data;
     private FileOutputStream fos = null;
     private ObjectOutputStream oos = null;
@@ -74,10 +74,11 @@ public class Mercado {
     }
     
     public void getFuncionarios() {
-        System.out.println("--- Lista de Funcionarios ---\n");
+        System.out.println("\n--- Lista de Funcionarios ---\n");
         for(Funcionario func : this.funcionarios){ //para cada funcionario no array funcionarioS
             System.out.println(func); //printa cada funcionario (nao precisa formatar por causa do override em Funcionario)
         }
+        System.out.println("-----------------------------\n");
     }
     
     public void passarDia(){
@@ -90,20 +91,12 @@ public class Mercado {
         this.endereco = endereco;
     }
 
-    public void setCorredores(ArrayList<Corredor> corredores) {
-        this.corredores = corredores;
-    }
-
     public void setData(Calendar data) {
         this.data = data;
     }
 
     public String getEndereco() {
         return endereco;
-    }
-
-    public ArrayList<Corredor> getCorredores() {
-        return corredores;
     }
 
     public Calendar getData() {
