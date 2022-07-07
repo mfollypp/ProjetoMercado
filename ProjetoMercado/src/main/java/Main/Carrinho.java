@@ -1,6 +1,5 @@
 package Main;
 
-
 import java.util.ArrayList;
 
 public class Carrinho {
@@ -13,6 +12,8 @@ public class Carrinho {
     public void removeProduto(Produto prod){ //remove produto prod do carrinho
         this.itens.remove(prod);
     }
+    
+    //gets e sets dos atributos da classe
 
     public void setItens(ArrayList<Produto> itens) { //pode usar pra clonar um carrinho
         this.itens = itens;

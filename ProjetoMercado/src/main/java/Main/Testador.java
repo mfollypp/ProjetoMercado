@@ -21,11 +21,11 @@ public class Testador {
         /*####################################################################*/
         
         /*--------------------------------------------------------------------*/
-        Calendar data = Calendar.getInstance();
-        data.set(2022, 7, 11);
-        Produto arroz = new Produto("Arroz", 10.9, data, 1);
-        Produto feijao = new Produto("Feijao", 8.5, data, 2);
-        Produto carne = new Produto("Carne", 42.90, data, 3);
+        Calendar validade = Calendar.getInstance();
+        validade.set(2022, 7, 11);
+        Produto arroz = new Produto("Arroz", 10.9, validade);
+        Produto feijao = new Produto("Feijao", 8.5, validade);
+        Produto carne = new Produto("Carne", 42.90, validade);
         
         Carrinho carrinho = new Carrinho();
         carrinho.addProduto(arroz);

@@ -8,7 +8,7 @@ import java.util.Collections;
 public class Prateleira {
     private ArrayList<Produto> produtos = new ArrayList<>();
     
-    public void organizaPrateleira(){//ornaginazacao em ordem alfabetica
+    public void organizaPrateleira(){ //ornaginazacao em ordem alfabetica
         try{
             Collections.sort(produtos,new ComparadorNomeCrescente()); //da sort na prateleira pra organizar os produtos
         }
@@ -27,7 +27,7 @@ public class Prateleira {
     }
     
     public int pesquisaPosicaoDaPrateleira(String nome){
-        for(int i=0;i<this.produtos.size();i++){ //da posicao 0 ate o tamanho final da prateleira
+        for(int i = 0; i < this.produtos.size(); i++){ //da posicao 0 ate o tamanho final da prateleira
             if(this.produtos.get(i).getNome().equals(nome)){ //se o produto na posicao i tiver o nome buscado
                 return i; //retorna posicao do produto com nome buscado
            }
@@ -35,9 +35,9 @@ public class Prateleira {
         return -1;
     }
     
-    public void addProdPrateleira(String nome, double preco, Calendar validade, int idProduto){
-        Produto x = new Produto(nome,preco,validade,idProduto); //cria produto pra add na prateleira
-        produtos.add(x); //add produto na prateleira
+    public void addProdPrateleira(String nome, double preco, Calendar validade){
+        Produto prod = new Produto(nome, preco, validade); //cria produto pra add na prateleira
+        produtos.add(prod); //add produto na prateleira
     }
     
     //gets e sets dos atributos da classe

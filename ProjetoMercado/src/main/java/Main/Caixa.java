@@ -3,8 +3,7 @@ package Main;
 import java.util.Scanner;
 
 public class Caixa {
-    private Cliente cliente;
-    private Carrinho carrinho;
+    private Funcionario funcionario;
     private String tipoPagamento;
     private double valorTotalCompra;
     Scanner input = new Scanner(System.in);
@@ -67,24 +66,16 @@ public class Caixa {
         return cli.getFidelidade();
     }
 
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
-    }
-
-    public void setCarrinho(Carrinho carrinho) {
-        this.carrinho = carrinho;
+    public void setFuncionario(Funcionario func) {
+        this.funcionario = func;
     }
 
     public void setTipoPagamento(String tipoPagamento) {
         this.tipoPagamento = tipoPagamento;
     }
 
-    public Cliente getCliente() {
-        return cliente;
-    }
-
-    public Carrinho getCarrinho() {
-        return carrinho;
+    public Funcionario getFuncionario() {
+        return funcionario;
     }
 
     public String getTipoPagamento() {
@@ -93,6 +84,6 @@ public class Caixa {
     
     @Override
     public String toString() {
-        return "Caixa{" + "cliente=" + cliente + ", carrinho=" + carrinho + ", tipoPagamento=" + tipoPagamento + ", valorTotalCompra=" + valorTotalCompra + ", input=" + input + '}';
+        return "Caixa{" + "Funcionario = " + funcionario + ", tipoPagamento=" + tipoPagamento + ", valorTotalCompra=" + valorTotalCompra + '}';
     }  
 }
