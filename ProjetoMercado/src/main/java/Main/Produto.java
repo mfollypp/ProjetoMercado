@@ -5,13 +5,19 @@ import java.util.Calendar;
 public class Produto {
     private String nome;
     private double preco;
-    private Calendar validade;
+    private Calendar validade = Calendar.getInstance();
     private int qtd;
 
-    public Produto(String nome, double preco, Calendar validade) { //construtor da classe Produto
+    public Produto(String nome, double preco) { //construtor da classe Produto
+        validade.add(Calendar.DATE, 3);
         this.nome = nome;
         this.preco = preco;
-        this.validade = validade;
+    }
+    
+    public Produto(String nome, double preco, int qtd) { //construtor da classe Produto para o Estoque (sobrecarga)
+        this.nome = nome;
+        this.preco = preco;
+        this.qtd = qtd;
     }
       
     public boolean checaValidade(){
@@ -32,6 +38,10 @@ public class Produto {
     public void setValidade(Calendar validade) {
         this.validade = validade;
     }
+    
+    public void setQtd(int qtd){
+        this.qtd = qtd;
+    }
 
     public String getNome() {
         return nome;
@@ -43,6 +53,10 @@ public class Produto {
 
     public Calendar getValidade() {
         return validade;
+    }
+    
+    public int getQtd(){
+        return this.qtd;
     }
     
     @Override

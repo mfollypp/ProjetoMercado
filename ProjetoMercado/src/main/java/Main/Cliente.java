@@ -18,7 +18,9 @@ public class Cliente extends Pessoa {
         }
     }
     
-    public void addProd(Produto prod){
+    public void addProd(String nomeProd, int qtd, Mercado mercado){
+        Produto prod = mercado.getPrateleira().pegaProduto(nomeProd, qtd);
+        prod.setQtd(qtd);
         this.carrinho.addProduto(prod); //para add produto ao carrinho sem precisar dar getCarrinho do cliente
     }
     

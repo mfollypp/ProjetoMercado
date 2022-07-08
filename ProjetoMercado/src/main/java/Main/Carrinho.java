@@ -22,6 +22,14 @@ public class Carrinho {
     public ArrayList<Produto> getItens() { //retorna os itens do carrinho
         return itens;
     }
+    
+    public void getProdutos(){
+        System.out.println("\n--------------------------------CARRINHO--------------------------------\n");
+        for(Produto prod : itens){
+            System.out.println("Nome: " + prod.getNome());
+            System.out.println("Quantidade: " + prod.getQtd() + "\n");
+        }
+    }
 
     @Override
     public String toString() {

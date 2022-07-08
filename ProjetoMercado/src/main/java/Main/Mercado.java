@@ -11,18 +11,21 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
 public class Mercado {
-    private String endereco;
+    private String nomeMercado;
     private ArrayList<Funcionario> funcionarios = new ArrayList<Funcionario>();
-    private ArrayList<Prateleira> prateleiras = new ArrayList<Prateleira>();
+    private Prateleira prateleira = new Prateleira();
+    private Estoque2 estoque = new Estoque2();
     private Calendar data;
     private FileOutputStream fos = null;
     private ObjectOutputStream oos = null;
     private FileInputStream fis = null;
     private ObjectInputStream ois = null;
 
-    public Mercado(String endereco) { //construtor da classe Mercado
-        this.endereco = endereco;
+    public Mercado(String nomeMercado) { //construtor da classe Mercado
+        this.nomeMercado = nomeMercado;
         this.data = Calendar.getInstance();
+        this.prateleira.criaProdutos();
+        this.estoque.criaProdutos();
     }
     
     public void leArqFuncionarios() throws FileNotFoundException, IOException, ClassNotFoundException, InvalidClassException{
@@ -74,11 +77,10 @@ public class Mercado {
     }
     
     public void getFuncionarios() {
-        System.out.println("\n--- Lista de Funcionarios ---\n");
+        System.out.println("\n---------------------------LISTA FUNCIONARIOS---------------------------\n");
         for(Funcionario func : this.funcionarios){ //para cada funcionario no array funcionarioS
             System.out.println(func); //printa cada funcionario (nao precisa formatar por causa do override em Funcionario)
         }
-        System.out.println("-----------------------------\n");
     }
     
     public void passarDia(){
@@ -87,20 +89,28 @@ public class Mercado {
     
     //gets e sets dos atributos da classe
 
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
+    public void setNomeMercado(String nomeMercado) {
+        this.nomeMercado = nomeMercado;
     }
 
     public void setData(Calendar data) {
         this.data = data;
     }
 
-    public String getEndereco() {
-        return endereco;
+    public String getNomeMercado() {
+        return nomeMercado;
     }
 
     public Calendar getData() {
         return data;
+    }
+    
+    public Prateleira getPrateleira(){
+        return this.prateleira;
+    }
+    
+    public Estoque2 getEstoque(){
+        return this.estoque;
     }
     
 }
