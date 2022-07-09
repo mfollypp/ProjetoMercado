@@ -19,9 +19,10 @@ public class Cliente extends Pessoa {
     }
     
     public void addProd(String nomeProd, int qtd, Mercado mercado){
-        Produto prod = mercado.getPrateleira().pegaProduto(nomeProd, qtd);
-        prod.setQtd(qtd);
-        this.carrinho.addProduto(prod); //para add produto ao carrinho sem precisar dar getCarrinho do cliente
+        Produto prod = mercado.getPrateleira().pegaProduto(nomeProd, qtd); //metodo que ja atualiza a qtd de produtos da prateleira e retorna o produto 
+        Produto produto = new Produto(prod.getNome(), prod.getPreco()); // tem que criar um novo produto se nao carrinho e prateleira vao apontar para o mesmo
+        produto.setQtd(qtd);
+        this.carrinho.addProduto(produto); //para add produto ao carrinho sem precisar dar getCarrinho do cliente
     }
     
     //gets e sets dos atributos da classe

@@ -11,9 +11,9 @@ public class Estoque {
         quantidadesDoProduto.add(quantidade); 
     }
     
-    public boolean checaDisponibilidade(String x){ 
+    public boolean checaDisponibilidade(String nomeProd){ 
         for(int i=0;i<produtos.size();i++){ 
-            if(produtos.get(i).getNome().equals(x)){ 
+            if(produtos.get(i).getNome().equals(nomeProd)){ 
                 return true; 
             } 
         } 
