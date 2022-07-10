@@ -12,6 +12,7 @@ public class Prateleira implements GerenciaProduto {
     private int qtdRestante;
     private int qtdDisponivel;
     
+    //Pilotto
     public void organizaPrateleira(){ //ornaginazacao em ordem alfabetica
         try{
             Collections.sort(produtosPrateleira, new ComparadorNomeCrescente()); //da sort na prateleira pra organizar os produtos
@@ -21,6 +22,7 @@ public class Prateleira implements GerenciaProduto {
         }
     }
     
+    //Pilotto
     public int pesquisaPosicaoDaPrateleira(String nome){
         for(int i = 0; i < this.produtosPrateleira.size(); i++){ //da posicao 0 ate o tamanho final da prateleira
             if(this.produtosPrateleira.get(i).getNome().toLowerCase().equals(nome)){ //se o produto na posicao i tiver o nome buscado
@@ -30,11 +32,13 @@ public class Prateleira implements GerenciaProduto {
         return -1;
     }
     
+    //Pilotto
     public void addProdPrateleira(String nomeProd, double preco){
         Produto prod = new Produto(nomeProd, preco); //cria produto pra add na prateleira
         produtosPrateleira.add(prod); //add produto na prateleira
     }
     
+    //Folly
     public Produto pegaProduto(String nomeProd, int qtd){ //metodo para pegar o produto da prateleira, retirando a quantidade q foi pego
         qtdDisponivel = this.checaQuantidade(nomeProd);
         indiceProduto = this.pesquisaPosicaoDaPrateleira(nomeProd); //retorna o indice de onde esta o produto na prateleira pelo nome
@@ -48,27 +52,30 @@ public class Prateleira implements GerenciaProduto {
         return this.getProdutos().get(indiceProduto); //retorna o produto
     }
     
+    //Pilotto
     public boolean checaDisponibilidade(String nomeProd){ 
         for(Produto prod : produtosPrateleira){
-            if(prod.getNome().toLowerCase().equals(nomeProd)){
+            if(prod.getNome().toLowerCase().equals(nomeProd)){ //checa se produto existe na prateleira
                 return true;
             }
         }
         return false;
     } 
     
+    //Pilotto & Folly
     public int checaQuantidade(String nomeProd){ 
         if(checaDisponibilidade(nomeProd)){
             int indice = this.pesquisaPosicaoDaPrateleira(nomeProd);
-            return produtosPrateleira.get(indice).getQtd();
+            return produtosPrateleira.get(indice).getQtd(); //checa quantidade do produto na prateleira
         }
         return -1;
     }
     
+    //Folly
     public int checaQuantidadeDisponivel(String nomeProd, int qtd){
         if(this.checaDisponibilidade(nomeProd)){
             qtdDisponivel = this.checaQuantidade(nomeProd);
-            if(qtdDisponivel < qtd){
+            if(qtdDisponivel < qtd){ //checa qtd disponivel para pegar
                 return qtdDisponivel;
             }
             return qtd;
@@ -76,15 +83,7 @@ public class Prateleira implements GerenciaProduto {
         return -1;
     }
     
-    @Override
-    public void printaProdutos(){
-        System.out.println("\n---------------------------PRODUTOS PRATELEIRA--------------------------\n");
-        for(Produto prod : produtosPrateleira){
-            System.out.println("Nome: " + prod.getNome());
-            System.out.println("Quantidade: " + prod.getQtd() + "\n");
-        }
-    }
-    
+    //Folly
     @Override
     public void criaProdutos(){
         Produto arroz = new Produto("Arroz", 10.9, QTDProd.PRATELEIRA.getQtd());
@@ -101,17 +100,20 @@ public class Prateleira implements GerenciaProduto {
         produtosPrateleira.add(refrigerante);
     }
     
+    //Folly
     public void restocaPrateleira(){
         for(Produto prod : produtosPrateleira){
-            prod.setQtd(QTDProd.PRATELEIRA.getQtd());
+            prod.setQtd(QTDProd.PRATELEIRA.getQtd()); //restoca produtos da prateleira
         }
     }
     
+    //Folly
     public void restocaProduto(Produto prod){
         indiceProduto = produtosPrateleira.indexOf(prod);
-        produtosPrateleira.get(indiceProduto).setQtd(QTDProd.PRATELEIRA.getQtd());
+        produtosPrateleira.get(indiceProduto).setQtd(QTDProd.PRATELEIRA.getQtd()); //restoca determinado produto da prateleira
     }
     
+    //Pilotto
     public void retiraDaPrateleira(String nome){
         try{
             produtosPrateleira.remove(pesquisaPosicaoDaPrateleira(nome)); //remove produto pela posicao na prateleira (encontra posicao pelo nome)
@@ -122,6 +124,16 @@ public class Prateleira implements GerenciaProduto {
     }
     
     //gets e sets dos atributos da classe
+    
+    //Folly
+    @Override
+    public void printaProdutos(){
+        System.out.println("\n---------------------------PRODUTOS PRATELEIRA--------------------------\n");
+        for(Produto prod : produtosPrateleira){
+            System.out.println("Nome: " + prod.getNome());
+            System.out.println("Quantidade: " + prod.getQtd() + "\n");
+        }
+    }
 
     public void setProdutos(ArrayList<Produto> produtos) {
         this.produtosPrateleira = produtos;

@@ -5,10 +5,12 @@ import java.util.ArrayList;
 public class Carrinho implements GerenciaProduto {
     private ArrayList<Produto> itens = new ArrayList<>(); //array de produtos (carrinho)
     
+    //Folly
     public void addProduto(Produto prod){ //insere produto prod no carrinho
         this.itens.add(prod);
     }
     
+    //Folly
     public void removeProduto(Produto prod){ //remove produto prod do carrinho
         this.itens.remove(prod);
     }
@@ -24,6 +26,7 @@ public class Carrinho implements GerenciaProduto {
         return itens;
     }
     
+    //Folly
     @Override
     public void printaProdutos(){
         System.out.println("\n--------------------------------CARRINHO--------------------------------\n");
@@ -33,10 +36,11 @@ public class Carrinho implements GerenciaProduto {
         }
     }
 
+    //Arthur & Folly
     @Override
-    public String toString() {
-        return "Carrinho{" + "itens=" + itens + '}';
-    }   
+    public String toString() { //para printar os produtos do carrinho sem precisar formatar na hora
+        return this.itens + "";
+    }
 
     @Override
     public void criaProdutos() {

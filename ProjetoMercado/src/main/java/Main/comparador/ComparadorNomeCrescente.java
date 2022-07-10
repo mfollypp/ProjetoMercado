@@ -3,6 +3,7 @@ package Main.comparador;
 import Main.Produto;
 import java.util.Comparator;
 
+//Pilotto
 public class ComparadorNomeCrescente implements Comparator<Produto>{
     
      @Override

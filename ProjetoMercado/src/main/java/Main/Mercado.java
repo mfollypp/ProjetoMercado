@@ -29,9 +29,10 @@ public class Mercado {
         this.estoque.criaProdutos();
     }
     
+    //Folly
     public void leArqFuncionarios() throws FileNotFoundException, IOException, ClassNotFoundException, InvalidClassException{
         try{
-            fis = new FileInputStream("funcionarios.txt");
+            fis = new FileInputStream("funcionarios.dat");
             ois = new ObjectInputStream(fis); //metodos pra abrir arquivo pra ler
             while(fis.available() != 0){ //enquanto nao é o fim do arquivo
                 Funcionario func = (Funcionario) ois.readObject(); //le objeto funcionario do arquivo
@@ -51,9 +52,10 @@ public class Mercado {
         }
     }
     
+    //Folly
     public void escreveArqFuncionarios() throws FileNotFoundException, IOException{
         try{
-            fos = new FileOutputStream("funcionarios.txt", false);
+            fos = new FileOutputStream("funcionarios.dat", false);
             oos = new ObjectOutputStream(fos); //metodos pra abrir o arquivo pra escrever
             for(Funcionario func : this.funcionarios){ //para cada funcionario no array funcionarioS
                 oos.writeObject(func); //escreve no arquivo cada funcionario
@@ -70,6 +72,7 @@ public class Mercado {
         }
     }
     
+    //Folly
     public void addFuncionario(String nome, int idade, int cadastro, String tipoFuncionario) {
         Funcionario func = new Funcionario(nome, idade, cadastro, tipoFuncionario); //cria funcionario pra add
         if(!this.funcionarios.contains(func)){ //se funcionario nao ta no arraylist funcionarioS
@@ -77,6 +80,7 @@ public class Mercado {
         }
     }
     
+    //Folly
     public void getFuncionarios() {
         System.out.println("\n---------------------------LISTA FUNCIONARIOS---------------------------\n");
         for(Funcionario func : this.funcionarios){ //para cada funcionario no array funcionarioS
@@ -84,18 +88,25 @@ public class Mercado {
         }
     }
     
+    //Folly
     public void restocaProdutos(){
         System.out.println("--------------------------------RESTOCA---------------------------------");
         for(Produto prod : this.prateleira.getProdutos()){
-            if(prod.getQtd() == 0){
-                System.out.println("Produto " + prod.getNome() + " esta sem estoque, iremos repor!");
-                this.prateleira.restocaProduto(prod);
-                this.estoque.retiraEstoque(prod.getNome(), QTDProd.PRATELEIRA.getQtd());
-                System.out.println("Produto reposto!");
+            if(prod.getQtd() == 0){ //se qtd de produto na prateleira for 0
+                if(this.estoque.checaQuantidade(prod.getNome()) > 0){ //se tem produto no estoque para passar pra prateleira
+                    System.out.println("Produto " + prod.getNome() + " esta sem estoque, iremos repor!");
+                    this.prateleira.restocaProduto(prod); //restoca prateleira
+                    this.estoque.retiraEstoque(prod.getNome(), QTDProd.PRATELEIRA.getQtd()); //retira do estoque a qtd da prateleira
+                    System.out.println("Produto reposto!");
+                }
+                else{
+                    System.out.println("Produto " + prod.getNome() + " esta sem estoque geral!");
+                }
             }
         }
     }
     
+    //Folly
     public void passarDia(){
         this.data.add(Calendar.DATE, 1); //passa 1 dia / 24 horas
     }

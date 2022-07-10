@@ -1,5 +1,6 @@
 package Main;
 
+//Folly
 public enum QTDProd {
     ESTOQUE(20),
     PRATELEIRA(10);

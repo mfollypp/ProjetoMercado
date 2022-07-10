@@ -41,11 +41,20 @@ public class Testador {
         /*####################################################################*/
         
         /*--------------------------------------------------------------------*/
+        //Simulacao de checagem para restoque de produtos que acabaram na prateleira
         mercado.restocaProdutos();
         
         matheus.getCarrinho().printaProdutos();
         mercado.getPrateleira().printaProdutos();
         mercado.getEstoque().printaProdutos();
+        /*####################################################################*/
+        
+        /*--------------------------------------------------------------------*/
+        //Testando o toString
+        System.out.println(matheus);
+        Funcionario func = new Funcionario("Funcionario Teste", 32, 9999, "Caixa");
+        Caixa.setFuncionario(func);
+        System.out.println(Caixa.getFuncionario());
         /*####################################################################*/
     }
 }

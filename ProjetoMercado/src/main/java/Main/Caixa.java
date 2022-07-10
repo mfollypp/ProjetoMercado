@@ -5,8 +5,8 @@ import java.util.Scanner;
 import java.util.InputMismatchException;
 
 public class Caixa {
-    private Funcionario funcionario;
-    private String tipoPagamento;
+    private static Funcionario funcionario;
+    private static String tipoPagamento;
     private static double valorTotalCompra;
     private static Scanner input = new Scanner(System.in);
     private static String in;
@@ -14,6 +14,7 @@ public class Caixa {
     private static double valor = 0;
     private static String valorTotal = "";
     
+    //Folly
     public static double totalCompra(Cliente cli){
         valorTotalCompra = 0;
         for(Produto prod : cli.getCarrinho().getProdutos()){ //para cada produto no carrinho
@@ -36,12 +37,14 @@ public class Caixa {
         return valorTotalCompra; //retorna o valor (sem desconto de fidelidade)
     }
     
+    //Folly
     public static void printaTotalCompra(Cliente cli){
         valor = totalCompra(cli);
         valorTotal = nf.format(valor);
         System.out.println("Valor total da compra: " + valorTotal);
     }
     
+    //Folly
     public static void fazPagamento(Cliente cli, String tipoPagamento) throws InputMismatchException{
         System.out.println("\n-------------------------------PAGAMENTO--------------------------------\n");
         printaTotalCompra(cli);
@@ -75,15 +78,15 @@ public class Caixa {
         return cli.getFidelidade();
     }
 
-    public void setFuncionario(Funcionario func) {
-        this.funcionario = func;
+    public static void setFuncionario(Funcionario func) {
+        funcionario = func;
     }
 
-    public void setTipoPagamento(String tipoPagamento) {
-        this.tipoPagamento = tipoPagamento;
+    public void setTipoPagamento(String tipoPag) {
+        tipoPagamento = tipoPag;
     }
 
-    public Funcionario getFuncionario() {
+    public static Funcionario getFuncionario() {
         return funcionario;
     }
 
@@ -91,8 +94,4 @@ public class Caixa {
         return tipoPagamento;
     }
     
-    @Override
-    public String toString() {
-        return "Caixa{" + "Funcionario = " + funcionario + ", tipoPagamento=" + tipoPagamento + ", valorTotalCompra=" + valorTotalCompra + '}';
-    }  
 }

@@ -30,6 +30,7 @@ public class Funcionario extends Pessoa implements Serializable {
         return tipoFuncionario;
     }
     
+    //Arthur & Folly
     @Override
     public String toString() { //para printa os funcionarios sem formatar na hora
 	return "Nome: " + this.getNome() + "\nCadastro: " + this.cadastro + "\nTipo Funcionario: " + this.tipoFuncionario + "\n";
