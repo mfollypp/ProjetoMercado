@@ -84,15 +84,28 @@ public class Estoque implements GerenciaProduto {
     
     //gets e sets dos atributos da classe
     
+//    //Folly
+//    @Override
+//    public void printaProdutos(){
+//        System.out.println("\n----------------------------PRODUTOS ESTOQUE----------------------------\n");
+//        for(Produto prod : produtosEstoque){
+//            System.out.println("Nome: " + prod.getNome());
+//            System.out.println("Quantidade: " + prod.getQtd() + "\n");
+//        }
+//        System.out.println("----------------------------PRODUTOS ESTOQUE----------------------------\n");
+//    }
+    
     //Folly
     @Override
     public void printaProdutos(){
-        System.out.println("\n----------------------------PRODUTOS ESTOQUE----------------------------\n");
+        System.out.println("\n\n------------------------------------------------------------------");
+        System.out.println("                             ESTOQUE                              ");
+        System.out.println("------------------------------------------------------------------");
+        System.out.printf("%-20s | %-20s | %-20s\n", "Nome", "Preco", "Quantidade");
+        System.out.println("------------------------------------------------------------------");
         for(Produto prod : produtosEstoque){
-            System.out.println("Nome: " + prod.getNome());
-            System.out.println("Quantidade: " + prod.getQtd() + "\n");
+            System.out.printf("%-20s | %-20s | %-20s\n", prod.getNome(), prod.getPreco(), prod.getQtd());
         }
-        System.out.println("----------------------------PRODUTOS ESTOQUE----------------------------\n");
     }
 
     @Override

@@ -26,15 +26,28 @@ public class Carrinho implements GerenciaProduto {
         return itens;
     }
     
+//    //Folly
+//    @Override
+//    public void printaProdutos(){
+//        System.out.println("\n--------------------------------CARRINHO--------------------------------\n");
+//        for(Produto prod : itens){
+//            System.out.println("Nome: " + prod.getNome());
+//            System.out.println("Quantidade: " + prod.getQtd() + "\n");
+//        }
+//        System.out.println("--------------------------------CARRINHO--------------------------------\n");
+//    }
+    
     //Folly
     @Override
     public void printaProdutos(){
-        System.out.println("\n--------------------------------CARRINHO--------------------------------\n");
+        System.out.println("\n\n------------------------------------------------------------------");
+        System.out.println("                             CARRINHO                             ");
+        System.out.println("------------------------------------------------------------------");
+        System.out.printf("%-20s | %-20s | %-20s\n", "Nome", "Preco", "Quantidade");
+        System.out.println("------------------------------------------------------------------");
         for(Produto prod : itens){
-            System.out.println("Nome: " + prod.getNome());
-            System.out.println("Quantidade: " + prod.getQtd() + "\n");
+            System.out.printf("%-20s | %-20s | %-20s\n", prod.getNome(), prod.getPreco(), prod.getQtd());
         }
-        System.out.println("--------------------------------CARRINHO--------------------------------\n");
     }
 
     //Arthur & Folly

@@ -80,13 +80,25 @@ public class Mercado {
         }
     }
     
+//    //Folly
+//    public void getFuncionarios() {
+//        System.out.println("\n---------------------------LISTA FUNCIONARIOS---------------------------\n");
+//        for(Funcionario func : this.funcionarios){ //para cada funcionario no array funcionarioS
+//            System.out.println(func); //printa cada funcionario (nao precisa formatar por causa do override em Funcionario)
+//        }
+//        System.out.println("---------------------------LISTA FUNCIONARIOS---------------------------\n");
+//    }
+    
     //Folly
     public void getFuncionarios() {
-        System.out.println("\n---------------------------LISTA FUNCIONARIOS---------------------------\n");
+        System.out.println("\n\n------------------------------------------------------------------");
+        System.out.println("                           FUNCIONARIOS                           ");
+        System.out.println("------------------------------------------------------------------");
+        System.out.printf("%-20s | %-20s | %-20s\n", "Nome", "Cadastro", "Tipo Funcionario");
+        System.out.println("------------------------------------------------------------------");
         for(Funcionario func : this.funcionarios){ //para cada funcionario no array funcionarioS
-            System.out.println(func); //printa cada funcionario (nao precisa formatar por causa do override em Funcionario)
+            System.out.printf("%-20s | %-20s | %-20s\n", func.getNome(), func.getCadastro(), func.getTipoFuncionario());
         }
-        System.out.println("---------------------------LISTA FUNCIONARIOS---------------------------\n");
     }
     
     //Folly
@@ -98,14 +110,13 @@ public class Mercado {
                     System.out.println("Produto " + prod.getNome() + " esta sem estoque, iremos repor!");
                     this.prateleira.restocaProduto(prod); //restoca prateleira
                     this.estoque.retiraEstoque(prod.getNome(), QTDProd.PRATELEIRA.getQtd()); //retira do estoque a qtd da prateleira
-                    System.out.println("Produto reposto!");
+                    System.out.printf("Produto reposto!");
                 }
                 else{
                     System.out.println("Produto " + prod.getNome() + " esta sem estoque geral!");
                 }
             }
         }
-        System.out.println("\n--------------------------------RESTOCA---------------------------------\n");
     }
     
     //Folly
