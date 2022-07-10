@@ -46,7 +46,7 @@ public class Caixa {
     
     //Folly
     public static void fazPagamento(Cliente cli, String tipoPagamento) throws InputMismatchException{
-        System.out.println("\n-------------------------------PAGAMENTO--------------------------------\n");
+        System.out.println("\n----------------------------PAGAMENTO-----------------------------\n");
         printaTotalCompra(cli);
         if(tipoPagamento.toLowerCase().equals("cartao")){ //se o tipo de pagamento for cartao
             System.out.println("Digite a senha do cartao:");

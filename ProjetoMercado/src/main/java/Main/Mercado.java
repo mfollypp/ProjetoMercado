@@ -103,7 +103,7 @@ public class Mercado {
     
     //Folly
     public void restocaProdutos(){
-        System.out.println("\n--------------------------------RESTOCA---------------------------------\n");
+        System.out.println("\n-----------------------------RESTOCA------------------------------\n");
         for(Produto prod : this.prateleira.getProdutos()){
             if(prod.getQtd() == 0){ //se qtd de produto na prateleira for 0
                 if(this.estoque.checaQuantidade(prod.getNome()) > 0){ //se tem produto no estoque para passar pra prateleira
