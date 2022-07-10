@@ -133,6 +133,7 @@ public class Prateleira implements GerenciaProduto {
             System.out.println("Nome: " + prod.getNome());
             System.out.println("Quantidade: " + prod.getQtd() + "\n");
         }
+        System.out.println("---------------------------PRODUTOS PRATELEIRA--------------------------\n");
     }
 
     public void setProdutos(ArrayList<Produto> produtos) {

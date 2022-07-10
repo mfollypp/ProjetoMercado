@@ -86,11 +86,12 @@ public class Mercado {
         for(Funcionario func : this.funcionarios){ //para cada funcionario no array funcionarioS
             System.out.println(func); //printa cada funcionario (nao precisa formatar por causa do override em Funcionario)
         }
+        System.out.println("---------------------------LISTA FUNCIONARIOS---------------------------\n");
     }
     
     //Folly
     public void restocaProdutos(){
-        System.out.println("--------------------------------RESTOCA---------------------------------");
+        System.out.println("\n--------------------------------RESTOCA---------------------------------\n");
         for(Produto prod : this.prateleira.getProdutos()){
             if(prod.getQtd() == 0){ //se qtd de produto na prateleira for 0
                 if(this.estoque.checaQuantidade(prod.getNome()) > 0){ //se tem produto no estoque para passar pra prateleira
@@ -104,6 +105,7 @@ public class Mercado {
                 }
             }
         }
+        System.out.println("\n--------------------------------RESTOCA---------------------------------\n");
     }
     
     //Folly

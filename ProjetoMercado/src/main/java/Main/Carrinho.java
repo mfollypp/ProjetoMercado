@@ -34,6 +34,7 @@ public class Carrinho implements GerenciaProduto {
             System.out.println("Nome: " + prod.getNome());
             System.out.println("Quantidade: " + prod.getQtd() + "\n");
         }
+        System.out.println("--------------------------------CARRINHO--------------------------------\n");
     }
 
     //Arthur & Folly

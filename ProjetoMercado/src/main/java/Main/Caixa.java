@@ -70,6 +70,7 @@ public class Caixa {
             System.out.println("Troco = " + troco); //calcula troco da compra do cliente
             cli.setValorCompra(0.0);
         }
+        System.out.println("\n-------------------------------PAGAMENTO--------------------------------\n");
     }
     
     //gets e sets dos atributos da classe

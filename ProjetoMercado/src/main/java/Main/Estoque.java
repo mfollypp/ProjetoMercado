@@ -92,6 +92,7 @@ public class Estoque implements GerenciaProduto {
             System.out.println("Nome: " + prod.getNome());
             System.out.println("Quantidade: " + prod.getQtd() + "\n");
         }
+        System.out.println("----------------------------PRODUTOS ESTOQUE----------------------------\n");
     }
 
     @Override
