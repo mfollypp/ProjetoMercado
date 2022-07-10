@@ -2,7 +2,7 @@ package Main;
 
 import java.util.ArrayList;
 
-public class Carrinho {
+public class Carrinho implements GerenciaProduto {
     private ArrayList<Produto> itens = new ArrayList<>(); //array de produtos (carrinho)
     
     public void addProduto(Produto prod){ //insere produto prod no carrinho
@@ -19,11 +19,13 @@ public class Carrinho {
         this.itens = itens;
     }
 
-    public ArrayList<Produto> getItens() { //retorna os itens do carrinho
+    @Override
+    public ArrayList<Produto> getProdutos() { //retorna os itens do carrinho
         return itens;
     }
     
-    public void getProdutos(){
+    @Override
+    public void printaProdutos(){
         System.out.println("\n--------------------------------CARRINHO--------------------------------\n");
         for(Produto prod : itens){
             System.out.println("Nome: " + prod.getNome());
@@ -35,4 +37,9 @@ public class Carrinho {
     public String toString() {
         return "Carrinho{" + "itens=" + itens + '}';
     }   
+
+    @Override
+    public void criaProdutos() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

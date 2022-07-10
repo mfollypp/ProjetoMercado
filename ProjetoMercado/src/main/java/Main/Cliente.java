@@ -5,6 +5,7 @@ public class Cliente extends Pessoa {
     private Carrinho carrinho = new Carrinho(); //instanciado porque se nao fica null e nao insere
     private double valorCompra;
     private int senhaCartao;
+    private int qtdDisponivel;
 
     public Cliente(String nome, int idade, int senhaCartao, boolean fidelidade) { //construtor da classe Cliente
         super(nome, idade);
@@ -19,9 +20,10 @@ public class Cliente extends Pessoa {
     }
     
     public void addProd(String nomeProd, int qtd, Mercado mercado){
-        Produto prod = mercado.getPrateleira().pegaProduto(nomeProd, qtd); //metodo que ja atualiza a qtd de produtos da prateleira e retorna o produto 
+        qtdDisponivel = mercado.getPrateleira().checaQuantidadeDisponivel(nomeProd, qtd);
+        Produto prod = mercado.getPrateleira().pegaProduto(nomeProd, qtdDisponivel); //metodo que ja atualiza a qtd de produtos da prateleira e retorna o produto 
         Produto produto = new Produto(prod.getNome(), prod.getPreco()); // tem que criar um novo produto se nao carrinho e prateleira vao apontar para o mesmo
-        produto.setQtd(qtd);
+        produto.setQtd(qtdDisponivel);
         this.carrinho.addProduto(produto); //para add produto ao carrinho sem precisar dar getCarrinho do cliente
     }
     

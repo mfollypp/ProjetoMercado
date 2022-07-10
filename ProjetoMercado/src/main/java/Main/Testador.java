@@ -27,20 +27,25 @@ public class Testador {
         //Simulacao cliente vai fazer compras no mercado:
         Cliente matheus = new Cliente("Matheus", 24, 1324, false);
         
-        mercado.getPrateleira().getProdutosPrateleira();
+        mercado.getPrateleira().printaProdutos();
         
         matheus.addProd("arroz", 2, mercado);
         matheus.addProd("feijao", 3, mercado);
+        matheus.addProd("carne", 11, mercado);
         
-        matheus.getCarrinho().getProdutos();
-        
-        mercado.getPrateleira().getProdutosPrateleira();
+        matheus.getCarrinho().printaProdutos();
+        mercado.getPrateleira().printaProdutos();
+        mercado.getEstoque().printaProdutos();
         
         Caixa.fazPagamento(matheus, "cartao");
         /*####################################################################*/
         
         /*--------------------------------------------------------------------*/
-        mercado.getEstoque().getProdutosEstoque();
+        mercado.restocaProdutos();
+        
+        matheus.getCarrinho().printaProdutos();
+        mercado.getPrateleira().printaProdutos();
+        mercado.getEstoque().printaProdutos();
         /*####################################################################*/
     }
 }

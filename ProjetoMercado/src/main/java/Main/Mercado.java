@@ -14,12 +14,13 @@ public class Mercado {
     private String nomeMercado;
     private ArrayList<Funcionario> funcionarios = new ArrayList<Funcionario>();
     private Prateleira prateleira = new Prateleira();
-    private Estoque2 estoque = new Estoque2();
+    private Estoque estoque = new Estoque();
     private Calendar data;
     private FileOutputStream fos = null;
     private ObjectOutputStream oos = null;
     private FileInputStream fis = null;
     private ObjectInputStream ois = null;
+    private int indiceProduto;
 
     public Mercado(String nomeMercado) { //construtor da classe Mercado
         this.nomeMercado = nomeMercado;
@@ -83,6 +84,18 @@ public class Mercado {
         }
     }
     
+    public void restocaProdutos(){
+        System.out.println("--------------------------------RESTOCA---------------------------------");
+        for(Produto prod : this.prateleira.getProdutos()){
+            if(prod.getQtd() == 0){
+                System.out.println("Produto " + prod.getNome() + " esta sem estoque, iremos repor!");
+                this.prateleira.restocaProduto(prod);
+                this.estoque.retiraEstoque(prod.getNome(), QTDProd.PRATELEIRA.getQtd());
+                System.out.println("Produto reposto!");
+            }
+        }
+    }
+    
     public void passarDia(){
         this.data.add(Calendar.DATE, 1); //passa 1 dia / 24 horas
     }
@@ -109,7 +122,7 @@ public class Mercado {
         return this.prateleira;
     }
     
-    public Estoque2 getEstoque(){
+    public Estoque getEstoque(){
         return this.estoque;
     }
     

@@ -16,7 +16,7 @@ public class Caixa {
     
     public static double totalCompra(Cliente cli){
         valorTotalCompra = 0;
-        for(Produto prod : cli.getCarrinho().getItens()){ //para cada produto no carrinho
+        for(Produto prod : cli.getCarrinho().getProdutos()){ //para cada produto no carrinho
             if(prod.getQtd() > 0){
                 valorTotalCompra += (prod.getPreco() * prod.getQtd()); //valor total = soma de cada produto
             }

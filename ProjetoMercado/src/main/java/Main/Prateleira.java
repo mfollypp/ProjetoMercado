@@ -5,9 +5,12 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
 
-public class Prateleira {
+public class Prateleira implements GerenciaProduto {
     private ArrayList<Produto> produtosPrateleira = new ArrayList<Produto>();
-    private static final int qtdPrateleiraPadrao = 10;
+//    private static final int qtdPrateleiraPadrao = 10; //substitui por enum de QTDProd
+    private int indiceProduto;
+    private int qtdRestante;
+    private int qtdDisponivel;
     
     public void organizaPrateleira(){ //ornaginazacao em ordem alfabetica
         try{
@@ -27,19 +30,54 @@ public class Prateleira {
         return -1;
     }
     
-    public void addProdPrateleira(String nome, double preco){
-        Produto prod = new Produto(nome, preco); //cria produto pra add na prateleira
+    public void addProdPrateleira(String nomeProd, double preco){
+        Produto prod = new Produto(nomeProd, preco); //cria produto pra add na prateleira
         produtosPrateleira.add(prod); //add produto na prateleira
     }
     
-    public Produto pegaProduto(String nome, int qtd){ //metodo para pegar o produto da prateleira, retirando a quantidade q foi pego
-        int indiceProduto = this.pesquisaPosicaoDaPrateleira(nome); //retorna o indice de onde esta o produto na prateleira pelo nome
-        int qtdRestante = this.getProdutos().get(indiceProduto).getQtd() - qtd; //para calcular a qtd restante
-        this.getProdutos().get(indiceProduto).setQtd(qtdRestante); //atualiza a qtd do produto para o indice calculado pra qtd restante
+    public Produto pegaProduto(String nomeProd, int qtd){ //metodo para pegar o produto da prateleira, retirando a quantidade q foi pego
+        qtdDisponivel = this.checaQuantidade(nomeProd);
+        indiceProduto = this.pesquisaPosicaoDaPrateleira(nomeProd); //retorna o indice de onde esta o produto na prateleira pelo nome
+        if(qtdDisponivel >= qtd){
+            qtdRestante = this.getProdutos().get(indiceProduto).getQtd() - qtd; //para calcular a qtd restante
+            this.getProdutos().get(indiceProduto).setQtd(qtdRestante); //atualiza a qtd do produto para o indice calculado pra qtd restante
+        }
+        else{
+            this.getProdutos().get(indiceProduto).setQtd(0); //atualiza a qtd do produto para o indice calculado pra 0 (pegou tudo que tinha disponivel)
+        }
         return this.getProdutos().get(indiceProduto); //retorna o produto
     }
     
-    public void getProdutosPrateleira(){
+    public boolean checaDisponibilidade(String nomeProd){ 
+        for(Produto prod : produtosPrateleira){
+            if(prod.getNome().toLowerCase().equals(nomeProd)){
+                return true;
+            }
+        }
+        return false;
+    } 
+    
+    public int checaQuantidade(String nomeProd){ 
+        if(checaDisponibilidade(nomeProd)){
+            int indice = this.pesquisaPosicaoDaPrateleira(nomeProd);
+            return produtosPrateleira.get(indice).getQtd();
+        }
+        return -1;
+    }
+    
+    public int checaQuantidadeDisponivel(String nomeProd, int qtd){
+        if(this.checaDisponibilidade(nomeProd)){
+            qtdDisponivel = this.checaQuantidade(nomeProd);
+            if(qtdDisponivel < qtd){
+                return qtdDisponivel;
+            }
+            return qtd;
+        }
+        return -1;
+    }
+    
+    @Override
+    public void printaProdutos(){
         System.out.println("\n---------------------------PRODUTOS PRATELEIRA--------------------------\n");
         for(Produto prod : produtosPrateleira){
             System.out.println("Nome: " + prod.getNome());
@@ -47,30 +85,31 @@ public class Prateleira {
         }
     }
     
+    @Override
     public void criaProdutos(){
-        Produto arroz = new Produto("Arroz", 10.9, qtdPrateleiraPadrao);
+        Produto arroz = new Produto("Arroz", 10.9, QTDProd.PRATELEIRA.getQtd());
         produtosPrateleira.add(arroz);
-        Produto feijao = new Produto("Feijao", 8.5, qtdPrateleiraPadrao);
+        Produto feijao = new Produto("Feijao", 8.5, QTDProd.PRATELEIRA.getQtd());
         produtosPrateleira.add(feijao);
-        Produto carne = new Produto("Carne", 42.90, qtdPrateleiraPadrao);
+        Produto carne = new Produto("Carne", 42.90, QTDProd.PRATELEIRA.getQtd());
         produtosPrateleira.add(carne);
-        Produto batata = new Produto("Batata", 15.2, qtdPrateleiraPadrao);
+        Produto batata = new Produto("Batata", 15.2, QTDProd.PRATELEIRA.getQtd());
         produtosPrateleira.add(batata);
-        Produto suco = new Produto("Suco", 4.9, qtdPrateleiraPadrao);
+        Produto suco = new Produto("Suco", 4.9, QTDProd.PRATELEIRA.getQtd());
         produtosPrateleira.add(suco);
-        Produto refrigerante = new Produto("Refrigerante", 5.9, qtdPrateleiraPadrao);
+        Produto refrigerante = new Produto("Refrigerante", 5.9, QTDProd.PRATELEIRA.getQtd());
         produtosPrateleira.add(refrigerante);
     }
     
     public void restocaPrateleira(){
         for(Produto prod : produtosPrateleira){
-            prod.setQtd(qtdPrateleiraPadrao);
+            prod.setQtd(QTDProd.PRATELEIRA.getQtd());
         }
     }
     
     public void restocaProduto(Produto prod){
-        int ind_prod = produtosPrateleira.indexOf(prod);
-        produtosPrateleira.get(ind_prod).setQtd(qtdPrateleiraPadrao);
+        indiceProduto = produtosPrateleira.indexOf(prod);
+        produtosPrateleira.get(indiceProduto).setQtd(QTDProd.PRATELEIRA.getQtd());
     }
     
     public void retiraDaPrateleira(String nome){
@@ -88,6 +127,7 @@ public class Prateleira {
         this.produtosPrateleira = produtos;
     }
 
+    @Override
     public ArrayList<Produto> getProdutos() {
         return produtosPrateleira;
     }
