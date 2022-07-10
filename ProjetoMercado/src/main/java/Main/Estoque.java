@@ -1,49 +1,103 @@
-package Main; 
- 
+package Main;
+
 import java.util.ArrayList; 
 
-public class Estoque {
-    private ArrayList<Produto> produtos = new ArrayList<>(); 
-    private ArrayList<Integer> quantidadesDoProduto=new ArrayList<>();// qtd respectiva  de cada produto no estoque da mesma possição do arrayList de produtos 
+public class Estoque implements GerenciaProduto {
+    private ArrayList<Produto> produtosEstoque = new ArrayList<Produto>();
+//    private static final int qtdEstoquePadrao = 20; //substitui por enum de QTDProd
     
-    public void adicionaNoEstoque(Produto x,int quantidade){ 
-        produtos.add(x); 
-        quantidadesDoProduto.add(quantidade); 
-    } 
+    //Folly
+    public void restocaEstoque(){
+        for(Produto prod : produtosEstoque){
+            prod.setQtd(QTDProd.ESTOQUE.getQtd()); //para restocar qtd de todos os produtos no estoque
+        }
+    }
     
-    public boolean checaDisponibilidade(String x){ 
-        for(int i=0;i<produtos.size();i++){ 
-            if(produtos.get(i).getNome().equals(x)){ 
+    //Folly
+    public void restocaProduto(Produto prod){
+        int ind_prod = produtosEstoque.indexOf(prod); //pega o indice do produto no estoque
+        produtosEstoque.get(ind_prod).setQtd(QTDProd.ESTOQUE.getQtd()); //restoca produto no estoque
+    }
+    
+    //Pilotto & Folly
+    public void adicionaNoEstoque(Produto prod){
+        prod.setQtd(QTDProd.ESTOQUE.getQtd()); //valor padrao do estoque atualmente
+        produtosEstoque.add(prod); 
+    }
+    
+    //Pilotto & Folly
+    public boolean checaDisponibilidade(String nomeProd){ 
+        for(int i = 0; i < produtosEstoque.size(); i++){ 
+            if(produtosEstoque.get(i).getNome().equals(nomeProd)){ //checa se produto existe no estoque
                 return true; 
             } 
         } 
         return false;      
     } 
     
-    public int checaQuantidade(String x){ 
-        if (checaDisponibilidade(x)== true){ 
-        for(int i=0;i<produtos.size();i++){ 
-            if(produtos.get(i).getNome().equals(x)){ 
-                return quantidadesDoProduto.get(i); 
+    //Pilotto & Folly
+    public int checaQuantidade(String nomeProd){ 
+        if (checaDisponibilidade(nomeProd) == true){ 
+            for(int i = 0; i < produtosEstoque.size(); i++){ 
+                if(produtosEstoque.get(i).getNome().equals(nomeProd)){ 
+                    return produtosEstoque.get(i).getQtd(); //checa quantidade do produto no estoque
                 } 
             } 
         } 
         return -1; 
     }
     
-    public void retiraEstoque(int quantidade,String x){ 
-        int qtd = checaQuantidade(x); 
-        if(qtd <= quantidade){
-            System.out.println("quantidade acima da disponivel");
+    //Pilotto & Folly
+    public void retiraEstoque(String nomeProd, int pegaQtd){ 
+        int qtd = checaQuantidade(nomeProd); 
+        if(qtd < pegaQtd){ //se tentar pegar mais do que tem disponivel
+            System.out.println("Quantidade acima da disponivel");
         } 
         else{
-            for(int i = 0; i < produtos.size(); i++){ 
-                if(produtos.get(i).getNome().equals(x)){ 
-                    int numero = qtd - quantidade; 
-                    quantidadesDoProduto.set(i,numero); 
+            for(int i = 0; i < produtosEstoque.size(); i++){ 
+                if(produtosEstoque.get(i).getNome().equals(nomeProd)){ 
+                    int numero = qtd - pegaQtd; //pega a qtd
+                    produtosEstoque.get(i).setQtd(numero); //atualiza a qtd para a nova restante
                 } 
             }   
         }
+    }
+    
+    //metodos para propria classe
+    
+    //Folly
+    @Override
+    public void criaProdutos(){
+        Produto arroz = new Produto("Arroz", 10.9, QTDProd.ESTOQUE.getQtd());
+        produtosEstoque.add(arroz);
+        Produto feijao = new Produto("Feijao", 8.5, QTDProd.ESTOQUE.getQtd());
+        produtosEstoque.add(feijao);
+        Produto carne = new Produto("Carne", 42.90, QTDProd.ESTOQUE.getQtd());
+        produtosEstoque.add(carne);
+        Produto batata = new Produto("Batata", 15.2, QTDProd.ESTOQUE.getQtd());
+        produtosEstoque.add(batata);
+        Produto suco = new Produto("Suco", 4.9, QTDProd.ESTOQUE.getQtd());
+        produtosEstoque.add(suco);
+        Produto refrigerante = new Produto("Refrigerante", 5.9, QTDProd.ESTOQUE.getQtd());
+        produtosEstoque.add(refrigerante);
+    }
+    
+    //gets e sets dos atributos da classe
+    
+    //Folly
+    @Override
+    public void printaProdutos(){
+        System.out.println("\n----------------------------PRODUTOS ESTOQUE----------------------------\n");
+        for(Produto prod : produtosEstoque){
+            System.out.println("Nome: " + prod.getNome());
+            System.out.println("Quantidade: " + prod.getQtd() + "\n");
+        }
+        System.out.println("----------------------------PRODUTOS ESTOQUE----------------------------\n");
+    }
+
+    @Override
+    public ArrayList<Produto> getProdutos() {
+        return this.produtosEstoque;
     }
     
 }

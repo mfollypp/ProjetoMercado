@@ -5,6 +5,7 @@ public class Cliente extends Pessoa {
     private Carrinho carrinho = new Carrinho(); //instanciado porque se nao fica null e nao insere
     private double valorCompra;
     private int senhaCartao;
+    private int qtdDisponivel;
 
     public Cliente(String nome, int idade, int senhaCartao, boolean fidelidade) { //construtor da classe Cliente
         super(nome, idade);
@@ -12,14 +13,20 @@ public class Cliente extends Pessoa {
         this.fidelidade = fidelidade;
     }
     
+    //Folly
     public void criaFidelidade(){
         if(this.fidelidade = false){
             this.fidelidade = true; //se a fidelidade do Cliente for false entao cria
         }
     }
     
-    public void addProd(Produto prod){
-        this.carrinho.addProduto(prod); //para add produto ao carrinho sem precisar dar getCarrinho do cliente
+    //Folly
+    public void addProd(String nomeProd, int qtd, Mercado mercado){
+        qtdDisponivel = mercado.getPrateleira().checaQuantidadeDisponivel(nomeProd, qtd); //pega a qtd disponivel de produto na prateleira
+        Produto prod = mercado.getPrateleira().pegaProduto(nomeProd, qtdDisponivel); //metodo que ja atualiza a qtd de produtos da prateleira e retorna o produto 
+        Produto produto = new Produto(prod.getNome(), prod.getPreco()); // tem que criar um novo produto se nao carrinho e prateleira vao apontar para o mesmo
+        produto.setQtd(qtdDisponivel); //atualiza quantidade do produto que vai ser inserido no carrinho
+        this.carrinho.addProduto(produto); //para add produto ao carrinho sem precisar dar getCarrinho do cliente
     }
     
     //gets e sets dos atributos da classe
@@ -56,8 +63,9 @@ public class Cliente extends Pessoa {
         this.senhaCartao = senhaCartao;
     }
 
+    //Arthur & Folly
     @Override
-    public String toString() {
-        return "Cliente{" + "fidelidade=" + fidelidade + ", carrinho=" + carrinho + ", valorCompra=" + valorCompra + ", senhaCartao=" + senhaCartao + '}';
+    public String toString() { //para printar os clientes sem precisar formatar na hora
+        return "Nome: " + this.getNome() + "\nFidelidade: " + this.fidelidade + "\nCarrinho: " + this.carrinho + "\n";
     }   
 }

@@ -1,15 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package Interface;
 
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author pcezar
- */
+//Pilotto
 public class TelaCadastroAdicionarProduto extends javax.swing.JFrame {
 
     /**
