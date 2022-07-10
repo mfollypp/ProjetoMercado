@@ -125,15 +125,28 @@ public class Prateleira implements GerenciaProduto {
     
     //gets e sets dos atributos da classe
     
+//    //Folly
+//    @Override
+//    public void printaProdutos(){
+//        System.out.println("\n---------------------------PRODUTOS PRATELEIRA--------------------------\n");
+//        for(Produto prod : produtosPrateleira){
+//            System.out.println("Nome: " + prod.getNome());
+//            System.out.println("Quantidade: " + prod.getQtd() + "\n");
+//        }
+//        System.out.println("---------------------------PRODUTOS PRATELEIRA--------------------------\n");
+//    }
+    
     //Folly
     @Override
     public void printaProdutos(){
-        System.out.println("\n---------------------------PRODUTOS PRATELEIRA--------------------------\n");
+        System.out.println("\n\n------------------------------------------------------------------");
+        System.out.println("                            PRATELEIRA                            ");
+        System.out.println("------------------------------------------------------------------");
+        System.out.printf("%-20s | %-20s | %-20s\n", "Nome", "Preco", "Quantidade");
+        System.out.println("------------------------------------------------------------------");
         for(Produto prod : produtosPrateleira){
-            System.out.println("Nome: " + prod.getNome());
-            System.out.println("Quantidade: " + prod.getQtd() + "\n");
+            System.out.printf("%-20s | %-20s | %-20s\n", prod.getNome(), prod.getPreco(), prod.getQtd());
         }
-        System.out.println("---------------------------PRODUTOS PRATELEIRA--------------------------\n");
     }
 
     public void setProdutos(ArrayList<Produto> produtos) {

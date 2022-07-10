@@ -51,6 +51,7 @@ public class Testador {
         
         /*--------------------------------------------------------------------*/
         //Testando o toString
+        System.out.println("\n\n\n");
         System.out.println(matheus);
         Funcionario func = new Funcionario("Funcionario Teste", 32, 9999, "Caixa");
         Caixa.setFuncionario(func);
