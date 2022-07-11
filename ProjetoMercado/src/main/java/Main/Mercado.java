@@ -110,7 +110,7 @@ public class Mercado {
                     System.out.println("Produto " + prod.getNome() + " esta sem estoque, iremos repor!");
                     this.prateleira.restocaProduto(prod); //restoca prateleira
                     this.estoque.retiraEstoque(prod.getNome(), QTDProd.PRATELEIRA.getQtd()); //retira do estoque a qtd da prateleira
-                    System.out.printf("Produto reposto!");
+                    System.out.println("Produto " + prod.getNome() + " reposto!");
                 }
                 else{
                     System.out.println("Produto " + prod.getNome() + " esta sem estoque geral!");

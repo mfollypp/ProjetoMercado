@@ -46,29 +46,36 @@ public class Caixa {
     
     //Folly
     public static void fazPagamento(Cliente cli, String tipoPagamento) throws InputMismatchException{
-        System.out.println("\n----------------------------PAGAMENTO-----------------------------\n");
-        printaTotalCompra(cli);
-        if(tipoPagamento.toLowerCase().equals("cartao")){ //se o tipo de pagamento for cartao
-            System.out.println("Digite a senha do cartao:");
-            int senha = input.nextInt(); //recebe a senha do cliente
-            while(senha != cli.getSenhaCartao()){ //enquanto a senha do cartao estiver errada (so entra se tiver errada)
-                System.out.println("Senha errada! Digite a senha novamente:");
-                senha = input.nextInt(); //pega nova senha e repete o loop
+        try{
+            System.out.println("\n----------------------------PAGAMENTO-----------------------------\n");
+            printaTotalCompra(cli);
+            if(tipoPagamento.toLowerCase().equals("cartao")){ //se o tipo de pagamento for cartao
+                System.out.println("Digite a senha do cartao:");
+                int senha = input.nextInt(); //recebe a senha do cliente
+                while(senha != cli.getSenhaCartao()){ //enquanto a senha do cartao estiver errada (so entra se tiver errada)
+                    System.out.println("Senha errada! Digite a senha novamente:");
+                    senha = input.nextInt(); //pega nova senha e repete o loop
+                }
+                System.out.println("Pagamento realizado com sucesso!");
+                cli.setValorCompra(0.0); //reseta o valor de compra do cliente pra 0 (metodo em Cliente)
             }
-            System.out.println("Pagamento realizado com sucesso!");
-            cli.setValorCompra(0.0); //reseta o valor de compra do cliente pra 0 (metodo em Cliente)
-        }
-        if(tipoPagamento.toLowerCase().equals("dinheiro")){ //se o tipo de pagamento for dinheiro
-            System.out.println("Digite quanto dinheiro foi entregue:");
-            double quantia = input.nextDouble(); //recebe a quantia em dinheiro do cliente
-            while(quantia < cli.getValorCompra()){ //enquanto a quantia for insuficiente (so entrar se for insuficiente)
-                System.out.println("Quantia insuficiente! Entregue a quantia novamente:");
-                quantia = input.nextDouble(); //pega nova quantia
+            if(tipoPagamento.toLowerCase().equals("dinheiro")){ //se o tipo de pagamento for dinheiro
+                System.out.println("Digite quanto dinheiro foi entregue:");
+                double quantia = input.nextDouble(); //recebe a quantia em dinheiro do cliente
+                while(quantia < cli.getValorCompra()){ //enquanto a quantia for insuficiente (so entrar se for insuficiente)
+                    System.out.println("Quantia insuficiente! Entregue a quantia novamente:");
+                    quantia = input.nextDouble(); //pega nova quantia
+                }
+                System.out.println("Pagamento realizado com sucesso!");
+                String troco = nf.format((quantia - cli.getValorCompra()));
+                System.out.println("Troco = " + troco); //calcula troco da compra do cliente
+                cli.setValorCompra(0.0);
             }
-            System.out.println("Pagamento realizado com sucesso!");
-            String troco = nf.format((quantia - cli.getValorCompra()));
-            System.out.println("Troco = " + troco); //calcula troco da compra do cliente
-            cli.setValorCompra(0.0);
+        }catch(InputMismatchException ex){
+            System.out.println("A senha do cartao deve ser um int!");
+            System.out.println("A quantia do dinheiro deve ser um double!");
+            System.out.println("Favor recomece com os inputs corretos!");
+            fazPagamento(cli, tipoPagamento);
         }
     }
     
