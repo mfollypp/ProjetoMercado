@@ -6,7 +6,7 @@ public class Estoque implements GerenciaProduto {
     private ArrayList<Produto> produtosEstoque = new ArrayList<Produto>();
 //    private static final int qtdEstoquePadrao = 20; //substitui por enum de QTDProd
     
-    //Folly
+    //Folly e Arthur
     public void restocaEstoque(){
         for(Produto prod : produtosEstoque){
             prod.setQtd(QTDProd.ESTOQUE.getQtd()); //para restocar qtd de todos os produtos no estoque
@@ -25,7 +25,7 @@ public class Estoque implements GerenciaProduto {
         produtosEstoque.add(prod); 
     }
     
-    //Pilotto & Folly
+    //Arthur & Folly
     public boolean checaDisponibilidade(String nomeProd){ 
         for(int i = 0; i < produtosEstoque.size(); i++){ 
             if(produtosEstoque.get(i).getNome().equals(nomeProd)){ //checa se produto existe no estoque
