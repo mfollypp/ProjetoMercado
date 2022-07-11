@@ -8,7 +8,7 @@ public class Caixa {
     private static Funcionario funcionario;
     private static String tipoPagamento;
     private static double valorTotalCompra;
-    private static Scanner input = new Scanner(System.in);
+ private static Scanner input = new Scanner(System.in);
     private static String in;
     private static NumberFormat nf = NumberFormat.getCurrencyInstance();
     private static double valor = 0;
@@ -45,9 +45,10 @@ public class Caixa {
     }
     
     //Folly
-    public static void fazPagamento(Cliente cli, String tipoPagamento) throws InputMismatchException{
+    public static void fazPagamento(Cliente cli, String tipoPagamento) {
         System.out.println("\n----------------------------PAGAMENTO-----------------------------\n");
         printaTotalCompra(cli);
+       try{
         if(tipoPagamento.toLowerCase().equals("cartao")){ //se o tipo de pagamento for cartao
             System.out.println("Digite a senha do cartao:");
             int senha = input.nextInt(); //recebe a senha do cliente
@@ -69,7 +70,13 @@ public class Caixa {
             String troco = nf.format((quantia - cli.getValorCompra()));
             System.out.println("Troco = " + troco); //calcula troco da compra do cliente
             cli.setValorCompra(0.0);
-        }
+        }}
+       catch(Exception ex){
+           System.out.println("Digite numeros validos");
+           System.out.println("Digite NOvamentes numeros validos");
+           fazPagamento(cli, tipoPagamento);
+       }
+       
     }
     
     //gets e sets dos atributos da classe

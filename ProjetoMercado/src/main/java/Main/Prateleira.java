@@ -6,7 +6,7 @@ import java.util.Calendar;
 import java.util.Collections;
 
 public class Prateleira implements GerenciaProduto {
-    private ArrayList<Produto> produtosPrateleira = new ArrayList<Produto>();
+    private ArrayList<Produto> produtosPrateleira = new ArrayList<>();
 //    private static final int qtdPrateleiraPadrao = 10; //substitui por enum de QTDProd
     private int indiceProduto;
     private int qtdRestante;
@@ -24,18 +24,24 @@ public class Prateleira implements GerenciaProduto {
     
     //Pilotto
     public int pesquisaPosicaoDaPrateleira(String nome){
+    try{
         for(int i = 0; i < this.produtosPrateleira.size(); i++){ //da posicao 0 ate o tamanho final da prateleira
             if(this.produtosPrateleira.get(i).getNome().toLowerCase().equals(nome)){ //se o produto na posicao i tiver o nome buscado
                 return i; //retorna posicao do produto com nome buscado
             }
         }
-        return -1;
+        return -1;  
     }
-    
+    catch(Exception ex){System.out.println(ex.getMessage());
+    return -1;}
+    }
     //Pilotto
     public void addProdPrateleira(String nomeProd, double preco){
+        try{
         Produto prod = new Produto(nomeProd, preco); //cria produto pra add na prateleira
-        produtosPrateleira.add(prod); //add produto na prateleira
+        produtosPrateleira.add(prod);} //add produto na prateleira)
+        catch(Exception ex){System.out.println(ex.getMessage());}
+        
     }
     
     //Folly
