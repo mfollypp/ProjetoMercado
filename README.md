@@ -3,16 +3,16 @@ Projeto de um Mercado para o trabalho de Programação Orientada a Objeto de 202
 
 ## Resumo
 A ideia do projeto é implementar funcionalidades de um sistema de mercado utilizando conceitos que foram ensinados em sala de aula ao longo do período. Dos conceitos vistos em sala, foi utilizado nesse projeto:
-* Encapsulamento
-* Herança
-* Sobrecarga
-* Sobrescrita
-* Arquivos
-* Enumeração
-* Interface
-* Métodos Estáticos
-* Coleções
-* Tratamento de Exceções
+* Encapsulamento ➡ Arthur, Pilotto, Folly
+* Herança ➡ Arthur, Pilotto, Folly
+* Sobrecarga ➡ Pilotto, Folly
+* Sobrescrita ➡ Arthur, Pilotto, Folly
+* Arquivos ➡ Folly
+* Enumeração ➡ Folly
+* Interface ➡ Folly
+* Métodos Estáticos ➡ Folly
+* Coleções ➡ Pilotto, Folly
+* Tratamento de Exceções ➡ Pilotto, Folly
 
 ### [Encapsulamento:](https://www.devmedia.com.br/encapsulamento-polimorfismo-heranca-em-java/12991#:~:text=Encapsulamento%C2%A0vem%20de,poder%C3%A1%20ser%20manipulada.)
 > Encapsulamento vem de encapsular, que em programação orientada a objetos significa separar o programa em partes, o mais isolado possível. A idéia é tornar o software mais flexível, fácil de modificar e de criar novas implementações. O Encapsulamento serve para controlar o acesso aos atributos e métodos de uma classe. É uma forma eficiente de proteger os dados manipulados dentro da classe, além de determinar onde esta classe poderá ser manipulada.
