@@ -56,6 +56,7 @@ public class Carrinho implements GerenciaProduto {
         return this.itens + "";
     }
 
+    //Folly
     @Override
     public void criaProdutos() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
